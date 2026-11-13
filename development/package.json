@@ -1,0 +1,45 @@
+{
+  "name": "mx-freeroam",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "node scripts/run.mjs build",
+    "typecheck": "node scripts/run.mjs typecheck",
+    "dev": "node scripts/run.mjs dev",
+    "check": "node scripts/run.mjs check",
+    "test": "node scripts/run.mjs test",
+    "test:db": "node scripts/run.mjs test:db",
+    "test:ui": "node scripts/run.mjs test:ui",
+    "test:lobby": "node scripts/run.mjs test:lobby",
+    "test:loading": "node scripts/run.mjs test:loading",
+    "test:drivecam": "node scripts/run.mjs test:drivecam",
+    "test:gearbox": "node scripts/run.mjs test:gearbox",
+    "test:pause": "node scripts/run.mjs test:pause",
+    "test:controls": "node scripts/run.mjs test:controls",
+    "test:sound": "node scripts/run.mjs test:sound",
+    "test:character": "node scripts/run.mjs test:character",
+    "test:garage": "node scripts/run.mjs test:garage",
+    "test:exit": "node scripts/run.mjs test:exit",
+    "test:wheels": "node scripts/run.mjs test:wheels",
+    "test:stance": "node scripts/run.mjs test:stance",
+    "test:modkits": "node scripts/run.mjs test:modkits",
+    "migrate": "node scripts/run.mjs migrate"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "fengari": "0.1.5",
+    "mysql2": "3.24.6",
+    "playwright": "1.61.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  }
+}

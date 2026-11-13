@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-21",
+  "reportedCase": "saved S14 to ER34N: prepareRespawn ready=false, old car immobilized",
+  "checks": {"build":"passed","typecheck":"passed","check":"passed","test":"passed: real client callbacks, transfer controller and server routes with adapters"},
+  "regressions": ["unlock before detach", "local detach timeout rollback", "native exception rollback", "retry after failure", "original driver restoration", "stale transfer rejection", "lost server recovery ACK watchdog", "resource-stop recovery", "reused entity identity ignored", "occupied driver seat not stolen", "passenger guard before mutation", "deleted car clears pending snapshot", "server prepare failure retains old entity", "server rollback acknowledgement and useful errors", "saved properties/drift preserved on successful retry"],
+  "databaseChanged": false,
+  "uiChanged": false,
+  "browserTestsRerun": false,
+  "fiveMClientExecuted": false,
+  "liveServerRestarted": false,
+  "pendingRuntime": ["S14 to ER34N using actual saved creations", "moving replacement", "physical controller and keyboard", "network authority migration and delayed acknowledgements"],
+  "qualification": "Source-level freeze/rollback defect corrected; exact asset-specific detach failure was not reproduced in FiveM."
+}

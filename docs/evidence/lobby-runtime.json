@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-16",
+  "engine": "FXServer artifact 37175, MariaDB 10.4.32",
+  "isolatedPort": 30131,
+  "database": "mx_freeroam_test_experience",
+  "schema": "006_friendships.sql",
+  "gameClients": 0,
+  "friendshipChecks": [
+    {
+      "ok": true,
+      "name": "Auto-solicitação rejeitada"
+    },
+    {
+      "ok": true,
+      "name": "Envio para jogador offline não simula sucesso"
+    },
+    {
+      "ok": true,
+      "name": "Reenvio idempotente de solicitação persistida"
+    },
+    {
+      "ok": true,
+      "name": "Listas separadas de solicitações enviadas e recebidas"
+    },
+    {
+      "ok": true,
+      "name": "Remetente não aceita a própria solicitação"
+    },
+    {
+      "ok": true,
+      "name": "Terceiro não aceita solicitação alheia"
+    },
+    {
+      "ok": true,
+      "name": "Aceite por destinatário grava relação real"
+    },
+    {
+      "ok": true,
+      "name": "Repetição do aceite não duplica relação"
+    },
+    {
+      "ok": true,
+      "name": "Amigos offline recuperados por ambos os IDs persistentes"
+    },
+    {
+      "ok": true,
+      "name": "Recusa remove somente a solicitação recebida"
+    },
+    {
+      "ok": true,
+      "name": "Banco impede par invertido"
+    }
+  ],
+  "limitations": [
+    "Creating a request to an online target needs two connected clients. Pending SQL fixtures test replay, accept, decline and ownership through real domain exports.",
+    "No native loading handoff, focus, camera composition or entities tested."
+  ],
+  "activeMigrationApplied": true,
+  "backup": "runtime/lobby-before006.local.sql"
+}

@@ -1,0 +1,29 @@
+# Diagnóstico de UNAVAILABLE na garagem — 17/10/2026
+
+Os logs existentes confirmam falhas `INTERNAL` nas rotas `experience/play`, `experience/preview` e `experience/enter`. `info.json` da instância em execução lista os dez módulos MX e oxmysql. A consulta SQL somente leitura mostrou JSON válido do personagem e do veículo selecionado (`elegy`, schema 1). Nenhum dado ou schema foi alterado. Não há evidência suficiente para atribuir a falha à inicialização por categoria.
+
+## Problemas encontrados e alterações
+
+1. `core/shared.lua` descartava a exceção técnica e convertia todo erro não recebido como tabela em UNAVAILABLE. O scheduler Lua instalado do Cfx (`server/citizen/scripting/lua/scheduler.lua`, `doStackFormat` e `exportProcessResult`) formata erros de exports como strings, inclusive validações esperadas de negócio. Agora `MX.fail` mantém os campos Lua e possui representação textual identificável, recuperada por `MX.error` mesmo após exports aninhados. Erros como SLOTS, DRIVER ou CLIENT_TIMEOUT deixam de ser mascarados quando atravessam essa fronteira.
+2. Exceções inesperadas passam a registrar rota, referência da requisição e detalhe técnico limitado a 2048 caracteres, com remoção de URI SQL e chave Cfx. Detalhes técnicos não são enviados à NUI. A mensagem genérica não afirma mais que nada foi gravado, pois um erro depois de um commit pode impedir apenas a confirmação.
+3. `core/server.lua` distingue uma resposta negativa efetivamente recebida de um timeout. A mensagem indica o par domínio/ação do cliente; `MX.clients` registra a causa no console F8.
+4. `experience/play` removia o carro de prévia antes de encerrar a apresentação que pode manter o jogador real sentado nele como motorista oculto. O handler real `experience/fade` agora encerra `WorkshopPresentation` enquanto a entidade ainda existe e confirma o desembarque. O servidor aguarda a confirmação replicada antes da remoção e troca de bucket. Isso corrige uma ordem frágil; os logs antigos não permitem provar que ela era a exceção deste relato.
+5. O usuário informou avisos `GetNetworkObject: no object by ID 65534` no resource vehicles. O cliente convertia IDs com `NetToVeh` mesmo quando ainda não estavam no escopo ou já tinham sido removidos, inclusive na confirmação de exclusão. `VehicleNetwork.resolve` agora verifica escopo, existência, tipo e identidade da entidade antes de permitir seu uso. Os limites de espera para streaming/controle continuam explícitos; timeout retorna VEHICLE_SYNC, sem fingir que a aplicação foi feita. `previewChanged` também revalida identidade antes da câmera. O valor 65534 não foi bloqueado: IDs são reutilizáveis e esse número, sozinho, não prova uma entidade inválida.
+
+Referência: [identidade e escopo de entidades na documentação Cfx](https://docs.fivem.net/docs/scripting-manual/networking/ids/). A documentação recomenda verificar `NETWORK_DOES_ENTITY_EXIST_WITH_NETWORK_ID` antes da conversão. O aviso fornecido é uma pista de sincronização; não prova sozinho a causa da falha da rota no servidor.
+
+## Verificação e limite
+
+Suíte Lua e análise estática aprovadas. Regressões verificam recuperação do código de negócio após conversão de erro por exports, ocultação de detalhes técnicos na resposta pública, redação de credenciais e o handler real de saída com motorista de apresentação sentado: ele é desembarcado, a apresentação encerrada e o veículo ainda existe no momento do ACK. Seis casos adicionais cobrem ID fora do escopo sem conversão, 65534 válido, ID reutilizado, remoção, tipo de entidade e IDs inválidos. Natives desses testes são simuladas; não constituem validação no FiveM.
+
+A exceção original exata não pode ser recuperada dos registros anteriores, que a descartaram. O relato F8 posterior identificou a falha atual de `vehicles/apply`, detalhada abaixo. Não foi possível reproduzir o clique com um cliente FiveM nesta execução. É necessário carregar as alterações pelo restart normal do perfil, reconectar e repetir Jogar/Garagem. Não reiniciamos a instância automaticamente. Inventário do diagnóstico em `docs/evidence/garage-unavailable.json`.
+
+## Causa identificada pelo F8: dimensões originais das rodas
+
+O novo relato registra `CLIENT_ERROR` em `vehicles/apply`, com detalhe `STANCE: Este modelo não aceitou tamanho/largura das rodas`. A consulta somente leitura do Elegy salvo confirmou `wheelSize=1` e `wheelWidth=1`, com roda modificada de índice 15. Esses fatores representam as dimensões originais; altura, cambagem e deslocamento eram os ajustes efetivos.
+
+`stance.lua` chamava os dois setters de dimensão mesmo com fatores neutros. A recusa de qualquer setter interrompia toda a aplicação, incluindo ajustes independentes. Agora cada dimensão só é escrita quando precisa mudar: fatores originais não acionam os setters em um veículo recém-carregado. A restauração acompanha quais dimensões foram alteradas pelo controlador. Ajustes reais continuam exigindo sucesso do setter e leitura compatível; falhas não publicam uma aplicação bem-sucedida. Nenhum registro salvo foi alterado.
+
+Os setters retornam BOOL e dependem de rodas não originais, conforme as declarações oficiais de [tamanho](https://github.com/citizenfx/fivem/blob/master/ext/native-decls/SetVehicleWheelSize.md) e [largura](https://github.com/citizenfx/fivem/blob/master/ext/native-decls/SetVehicleWheelWidth.md). A correção preserva essa validação.
+
+A suíte de suspensão passou com 32 verificações, incluindo a configuração salva com ambos os setters recusando alterações, refresh/restauração sem redimensionamento neutro, rejeição de largura personalizada não suportada e retorno à largura original depois de uma alteração válida. `npm --prefix development test`, `npm --prefix development run check` e `git diff --check` passaram. Esses testes usam natives simuladas; aplicação, áudio, câmeras e entidades ainda exigem validação dentro do jogo.

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-17",
+  "exit": {"x":163.2,"y":-3024.11,"z":6.05,"heading":268.29},
+  "entry": {"min":{"x":120,"y":-3050,"z":6},"max":{"x":160,"y":-3007,"z":10}},
+  "starterMinimumMs":450,
+  "checks": {
+    "test":"passed",
+    "build":"passed",
+    "typecheck":"passed",
+    "staticCheck":"passed",
+    "diffCheck":"passed; preexisting server.cfg CRLF normalization warning",
+    "browser":"passed at 1280x720, 1920x1080, 2560x1440 and 3440x1440"
+  },
+  "regressions":[
+    "inclusive boundaries and outside each axis",
+    "real area-entry route rejects wrong bucket, outside position and repeated entry",
+    "real departure handler waits minimum 450ms with engine running",
+    "slow starter does not receive another full delay after running",
+    "starter timeout restores transient flags",
+    "passenger and recycled entity identity rejected",
+    "NUI prompt keyboard E, controller direction and hide message"
+  ],
+  "visualInspection":"workshop-entry-1920x1080.png",
+  "browserReport":"ui.json",
+  "gameClients":0,
+  "nativeAdaptersSimulated":true,
+  "liveDatabaseModified":false,
+  "inGameRequired":["starter audio","new exit collision/ground height","physical controller context button","ER34N engine start","two-player exit reservation"]
+}

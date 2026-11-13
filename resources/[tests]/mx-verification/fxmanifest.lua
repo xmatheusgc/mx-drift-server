@@ -1,0 +1,7 @@
+fx_version 'cerulean'
+game 'gta5'
+dependency 'mx-freeroam-core'
+shared_script '@mx-freeroam-core/shared.lua'
+server_script 'server.lua'
+server_script 'experience.lua'
+server_script 'friends.lua'

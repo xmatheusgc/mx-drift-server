@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "project_confirmed_by_user": "Drift; lobby and garage",
+  "command": "mxcamedit",
+  "ui_entry": "DEV · CAMERA",
+  "permission": ["mx.admin", "mx.inspect"],
+  "export_fields": ["context", "view", "position", "rotation", "look", "fov"],
+  "persistent_camera_write": false,
+  "changes_ped_or_vehicle_position": false,
+  "controls": {"move":"WASD", "vertical":"Q/E", "look":"mouse drag", "fast":"Shift", "precision":"Ctrl"},
+  "limits": {"distance_from_start_m":100,"fov":[15,100],"pitch":[-89,89],"grant_renewal_ms":2000,"local_expiry_ms":6000},
+  "tests": {
+    "build_and_types":"passed",
+    "static_and_manifests":"passed",
+    "full_suite":"passed",
+    "new_controller_assertions":23,
+    "movement_math_fps_diagonal_precision":"passed",
+    "actual_main_camera_native_fov_regression":"passed_with_adapters",
+    "full_browser_suite":"passed_with_mocked_transport",
+    "final_bundle_targeted_browser":"passed_with_mocked_transport",
+    "resolutions":[[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "visual_inspection":"camera-developer-1280x720.png",
+    "targeted_browser_report":"camera-developer-browser.json"
+  },
+  "game_clients_verified":0,
+  "real_cef_clipboard_verified":false,
+  "server_restarted":false,
+  "player_data_modified":false,
+  "nativecore_files_modified":false
+}

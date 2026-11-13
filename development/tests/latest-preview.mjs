@@ -1,0 +1,31 @@
+import '../scripts/workspace.mjs';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const js=ts.transpileModule(await readFile('development/ui/src/latest-preview.ts','utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText;
+const {LatestPreview}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const scheduler=new LatestPreview(),published=[],loaded=[],intents=[];
+let release;
+const first=scheduler.choose(async()=>intents.push('a'),async()=>{loaded.push('a');return new Promise(resolve=>release=resolve);},v=>published.push(v),e=>{throw e;});
+await new Promise(resolve=>setTimeout(resolve,0));
+const second=scheduler.choose(async()=>intents.push('b'),async()=>{loaded.push('b');return 'b';},v=>published.push(v),e=>{throw e;});
+const third=scheduler.choose(async()=>intents.push('c'),async()=>{loaded.push('c');return 'c';},v=>published.push(v),e=>{throw e;});
+assert.deepEqual(intents,['a','b','c']);release('a');await Promise.all([first,second,third]);
+assert.deepEqual(loaded,['a','c']);assert.deepEqual(published,['c']);
+let finish;
+const closing=scheduler.choose(async()=>{},()=>new Promise(resolve=>finish=resolve),v=>published.push(v),e=>{throw e;});
+await new Promise(resolve=>setTimeout(resolve,0));scheduler.cancel();finish('closed');await closing;
+assert.deepEqual(published,['c']);console.log('LatestPreview: intenções imediatas, fila única, pedidos intermediários descartados, última seleção prevalece e cancelamento bloqueia publicação.');
+const coalesced=new LatestPreview(25),requests=[];
+await Promise.all(Array.from({length:100},(_,n)=>coalesced.choose(async()=>{},async()=>{requests.push(n);return n;},()=>{},e=>{throw e;})));
+assert.deepEqual(requests,[99],'rapid cosmetic selections coalesce to the last model index');
+console.log('LatestPreview: 100 rapid choices coalesced into one request.');
+const timers=[],nativeTimeout=globalThis.setTimeout;
+globalThis.setTimeout=(fn,ms,...args)=>{timers.push(ms);return nativeTimeout(fn,0,...args);};
+try{
+ const local=new LatestPreview(180);let applied;
+ await local.choose(async()=>{},async()=>1,v=>applied=v,e=>{throw e;},0);
+ assert.equal(applied,1);assert.deepEqual(timers,[],'local stance path bypasses the cosmetic debounce');
+ await local.choose(async()=>{},async()=>2,v=>applied=v,e=>{throw e;});
+ assert.equal(applied,2);assert.deepEqual(timers,[180],'server cosmetic pacing remains intact');
+}finally{globalThis.setTimeout=nativeTimeout;}

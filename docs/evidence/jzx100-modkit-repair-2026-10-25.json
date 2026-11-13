@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "reason": "JZX100 and chaser both use modkit ID 3190",
+  "old": {
+    "id": 3190,
+    "name": "3190_jzx100_modkit"
+  },
+  "replacement": {
+    "id": 6190,
+    "name": "6190_jzx100_modkit"
+  },
+  "files": [
+    {
+      "path": "resources/[vehicles]/jzx100/data/common/data/carcols.meta",
+      "beforeSha256": "b339b9118dec47c10674aca08db7b833bbe8a03e02d2e7932d4efd10b62e8e87",
+      "afterSha256": "a2f5fd5cafbefb273aa26dfd5d6b12deb81130dfff079a1db93856473b3c1400"
+    },
+    {
+      "path": "resources/[vehicles]/jzx100/data/common/data/carvariations.meta",
+      "beforeSha256": "a950e733567d6783773239956d54c5ff733a4d2c4a27d039abc2dc2d3577b8aa",
+      "afterSha256": "1933330e134c43e1aeac60f87f0f8d5d8e2d93b8342d8f1dd19a6c3b6542d575"
+    }
+  ]
+}

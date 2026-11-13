@@ -1,0 +1,10 @@
+{
+  "migration": "007_vehicle_modes.sql",
+  "isolatedDatabaseTests": true,
+  "localDatabaseMigrated": true,
+  "idempotence": true,
+  "existingSavedRows": 6,
+  "existingSavedDataUnchanged": true,
+  "columnDefault": "0",
+  "clientFiveMValidated": false
+}

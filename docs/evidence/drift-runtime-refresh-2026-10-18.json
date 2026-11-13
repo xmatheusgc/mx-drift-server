@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-18",
+  "finding": "Raw handling read-back did not rebuild existing transmission; wheel-power flags were not updated for the RWD preset",
+  "fix": "Per-vehicle ModifyVehicleTopSpeed(v,0.0), explicit high gear and powered-wheel state, original-state restoration, refresh after repair and ownership gain",
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "static": "passed; neutral refresh restricted to authorized controller",
+    "lua": "passed; 67 production Lua files parsed and actual modules exercised with native/network adapters",
+    "ownerXml": "all 51 runtime attributes match development/fixtures/drift-owner.xml, including vectors and hex flags",
+    "regressions": ["derived-cache adapter changes only on refresh", "zero additional percentage", "five gears and rear wheels powered", "restore original fields, gear and FWD flags", "refresh failure rollback", "exact per-field diagnostic discrepancies", "late observer and ownership gain", "stable owner avoids continuous resets", "repair forces rebuild", "legacy ACK rejected", "diagnostic ownership scope", "baseline above setter gear cap rejected before mutation"],
+    "browser": "not rerun: interface unchanged"
+  },
+  "diagnostic": "F8: mxhandling; chat: /mxhandling",
+  "xmlCaveat": "Provided traction minimum 1.30 exceeds maximum 1.07; Cfx has a special derived-factor branch for this condition. Values preserved, physical equivalence unverified.",
+  "automaticEntityReplacementAdded": false,
+  "liveServerRestarted": false,
+  "fiveMClientExecuted": false,
+  "physicalDriftBehaviorValidated": false
+}

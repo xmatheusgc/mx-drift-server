@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "kind": "workshop_archetype_registration_wait",
+  "reported_model": "denis3d_ts_shell",
+  "reported_manual_retry_succeeded": true,
+  "real_registration_timing_measured": false,
+  "old_behavior": "failed immediately if model was not registered",
+  "new_behavior": "wait for registration within shared scene deadline, request each registered model once",
+  "scene_timeout_ms": 30000,
+  "core_callback_timeout_ms": 35000,
+  "registration_poll_ms": 50,
+  "checks": {
+    "full_suite": "passed",
+    "static_and_manifests": "passed",
+    "delayed_registration_900ms": "passed_with_native_adapters",
+    "single_request_after_registration": "passed_with_native_adapters",
+    "interior_model_collision_scene_stability_guards": "passed_with_native_adapters",
+    "cancel_before_registration": "passed_with_native_adapters",
+    "permanently_missing_model_deadline_and_cleanup": "passed_with_native_adapters"
+  },
+  "model_manifest_modified": false,
+  "ui_modified_or_rebuilt": false,
+  "game_clients_verified": 0,
+  "server_restarted": false,
+  "player_data_modified": false,
+  "remaining": ["Restart and reconnect", "First garage entry immediately after boot in FiveM"]
+}

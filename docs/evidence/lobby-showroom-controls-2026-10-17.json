@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-17",
+  "scope": "Incremental lobby/controller/anchored strips/colour panel/Showroom/session car and saved collection",
+  "coordinates": {
+    "lobby": {
+      "x": -949.47,
+      "y": -3533.03,
+      "z": 13.94,
+      "heading": 274.72
+    },
+    "garage": {
+      "x": 178.62,
+      "y": -3088.07,
+      "z": 5,
+      "heading": 300
+    }
+  },
+  "catalog": {
+    "declaredModels": 12,
+    "sourceOnly": "resources/[vehicles]",
+    "rawInventory": "catalog-discovery.json",
+    "displayOverrides": {
+      "nis15": "NISSAN",
+      "s15naoki": "NISSAN",
+      "er34": "Sem marca"
+    },
+    "legacySavedModelsPreserved": true,
+    "legacyVanillaInShowroom": false,
+    "runtimeDiscovery": "Registered resources filtered by GetResourcePath; filesystem reads limited to their own resource directories; category parent is never statted or enumerated"
+  },
+  "verification": {
+    "buildAndTypecheck": "passed",
+    "staticCheck": "passed",
+    "luaFilesParsed": 54,
+    "controllerGateAssertions": 16,
+    "actualSessionRouteAssertions": 17,
+    "adaptersForLuaRouteTests": "SQL and natives simulated",
+    "catalogDiscovery": "fixture packs and real installed folder passed",
+    "browserResolutions": [
+      [
+        1280,
+        720
+      ],
+      [
+        1920,
+        1080
+      ],
+      [
+        2560,
+        1440
+      ],
+      [
+        3440,
+        1440
+      ]
+    ],
+    "browserEvidence": [
+      "ui.json",
+      "lobby.json"
+    ],
+    "visualInspection": [
+      "color-panel-1280x720.png",
+      "color-panel-1920x1080.png"
+    ],
+    "mariadbIsolated": "passed migrations, ownership, revision conflict and recovery across new SQL connection",
+    "productionDatabaseModified": false,
+    "separateLintScript": false,
+    "nodeCatalogSyntaxCheck": "passed",
+    "diffCheck": "passed",
+    "catalogSandboxRegression": "Passed actual JS runtime branch under filesystem adapter denying category/unrelated reads; not executed in FXServer"
+  },
+  "runtime": {
+    "fiveMClients": 0,
+    "physicalControllers": 0,
+    "serverRestarted": false,
+    "cameraValidatedInGame": false,
+    "entitiesValidatedInGame": false,
+    "loadingHandoffValidatedInGame": false
+  },
+  "pending": [
+    "3D composition, ground/collision and streaming at lobby coordinates",
+    "Physical controller mapping, direction, repetition and context boundaries",
+    "Entity replication and deletion across repeated lobby/garage/gameplay transitions",
+    "Material colours, native finish and saved customization across actual FiveM reconnect"
+  ],
+  "documentation": "../lobby-showroom-controls-2026-10-17.md",
+  "lobbyTime": {
+    "hour": 23,
+    "minute": 0,
+    "scope": "local lobby presentation only",
+    "restore": "WorldConfig.hour outside lobby",
+    "visualValidationInFiveM": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-19",
+  "build": "passed",
+  "typecheck": "passed",
+  "staticCheck": "passed",
+  "lua": "passed; 67 production Lua files parsed; native/network/SQL adapters",
+  "er34nXml": "parsed; CCarHandlingData and two NULL subtypes; three fields verified",
+  "browser": "passed; simulated transport",
+  "resolutions": [
+    [
+      1280,
+      720
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      3440,
+      1440
+    ]
+  ],
+  "switchScreenshots": "trainer-switch-car-<width>x<height>.png",
+  "noclip": "one activation RPC; immediate local stop; no SQL grant; frame loop; queued repeat",
+  "movingActions": [
+    "drift",
+    "respawn",
+    "switch"
+  ],
+  "stationaryActions": [
+    "flip"
+  ],
+  "databaseMigrated": false,
+  "serverRestarted": false,
+  "gameClientExecuted": false
+}

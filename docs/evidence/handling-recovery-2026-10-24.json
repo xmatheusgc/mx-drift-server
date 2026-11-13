@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "kind": "optional_drift_recovery_and_model_definition",
+  "tests": {
+    "build_and_typecheck": "passed",
+    "static_and_manifests": "passed",
+    "full_lua_and_contract_suite": "passed",
+    "er34n_subhandling_and_owner_xml_51_fields": "passed",
+    "recovery_and_saved_car_regressions": "passed",
+    "browser_warning_and_retry": "passed",
+    "browser_resolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "visual_inspection": "drift-fallback-1280x720.png"
+  },
+  "policy": {
+    "application_attempts_max": 2,
+    "optional_drift_failure_aborts_vehicle_apply": false,
+    "automatic_fallback_modifies_saved_preference": false,
+    "unconfirmed_manual_toggle_reports_persisted": false,
+    "uncertain_handling_blocks_competition": true,
+    "entity_identity_and_mandatory_ack_guards_preserved": true
+  },
+  "er34n": {
+    "previous_subtypes": "three empty Item types",
+    "new_subtype": "CCarHandlingData",
+    "main_CHandlingData_retuned": false,
+    "previous_content_reference": "er34n-handling-before-2026-10-24.meta",
+    "sha256_previous_content_reference": "9B0064327BE898B4AEB37A4C78D2608E59BDDF65A2C6205FCB3F99321F8D3A67",
+    "sha256_updated_handling": "553C43FDEC67558A6F9CB912CA85B32123CA7AFB5C25C8BB5C1900965534FAF3"
+  },
+  "game_clients_verified": 0,
+  "server_restarted": false,
+  "player_data_modified": false,
+  "remaining": ["Complete txAdmin restart and reconnect", "ER34N departure and saved-car switch in FiveM", "Actual native audit and driving validation"]
+}

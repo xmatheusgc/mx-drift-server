@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-18",
+  "scope": "Contextual vehicle options, drift handling supplied by user, individual doors, locks, occupant ejection and coordinated respawn",
+  "checks": {
+    "build": "passed: TypeScript and production Vite bundle",
+    "typecheck": "passed",
+    "static": "passed: startup/manifests/domain boundaries; owner-supplied per-entity handling exception restricted to drift-client.lua",
+    "lint": "no separate lint script available",
+    "lua": "passed: 67 production Lua files parsed, existing suites and actual handling/fleet/services modules executed with native/network adapters",
+    "browser": "passed: Chromium 1280x720, 1920x1080, 2560x1440, 3440x1440; explicit simulated transport",
+    "visualInspection": ["vehicle-options-1280x720.png", "vehicle-options-on-foot-1280x720.png"],
+    "vehicleCases": ["owner fleet cannot be selected by another player", "stale ID and invalid door rejected", "remote owner engine and doors", "distance, bucket, noclip, moving and driver guards", "individual doors leave other doors unchanged", "lock toggle", "targeted occupant exit", "drift ACK rollback", "respawn model-load, preparation and deletion failures", "previous entity removed before replacement", "one active entity and owner seated after respawn", "customized wheels, paint and drift state preserved", "cooldown", "identity revalidated after async work"],
+    "handlingCases": ["supplied power, mass, steering, traction, transmission, vectors, hexadecimal flags, zero values and car subhandling", "other entities unchanged", "disable restores original snapshot", "read-back failure rolls back", "missing subtype fails before mutation", "repeated sync preserves baseline", "reused handle protected", "resource stop restores baseline", "actual activity candidate blocks competitive modes with preset and permits practice/training"],
+    "uiCases": ["vehicle options grouping", "left/right chooses a door without executing", "Enter executes selected door", "drift toggle", "respawn confirmation", "driver-only actions disabled on foot", "engine still executes on foot", "confirmation selection isolated from menu selection", "existing garage/lobby/customization regressions"]
+  },
+  "preset": {
+    "source": "XML supplied by the user in this request",
+    "file": "resources/[mx]/mx-freeroam-vehicles/drift-config.lua",
+    "scope": "current managed vehicle entity; retained by trainer respawn, not added to saved garage SQL document",
+    "metadataNotOverridden": ["handlingName placeholder", "AIHandling enum", "NULL subtype declarations"],
+    "compatibility": "models/builds must expose required CHandlingData and CCarHandlingData fields; unsupported fields prevent silent partial application",
+    "runtimePhysicsValidated": false
+  },
+  "fiveMClientExecuted": false,
+  "liveServerRestarted": false,
+  "runtimePending": ["real model/build handling field support and derived transmission caches", "driving feel and exact physics", "restore after migration/streaming", "remote lock/doors/engine under real network ownership", "two real accounts for ejection", "respawn with actual assets, collision and inclined terrain", "disconnects during RPC"],
+  "data": "No live garage records, model asset handling files or database tables modified by verification. No live players ejected. No changes to mx-gearbox or mx-turbo."
+}

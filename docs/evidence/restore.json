@@ -1,0 +1,56 @@
+{
+  "source": "mx_freeroam_test",
+  "target": "mx_freeroam_test_r1792118285379",
+  "report": [
+    {
+      "table": "schema_migrations",
+      "rows": 4,
+      "equal": true
+    },
+    {
+      "table": "players",
+      "rows": 9,
+      "equal": true
+    },
+    {
+      "table": "player_preferences",
+      "rows": 2,
+      "equal": true
+    },
+    {
+      "table": "garage_presets",
+      "rows": 2,
+      "equal": true
+    },
+    {
+      "table": "activity_results",
+      "rows": 21,
+      "equal": true
+    },
+    {
+      "table": "activity_delivery",
+      "rows": 21,
+      "equal": true
+    },
+    {
+      "table": "xp_ledger",
+      "rows": 20,
+      "equal": true
+    },
+    {
+      "table": "player_progression",
+      "rows": 7,
+      "equal": true
+    },
+    {
+      "table": "achievement_progress",
+      "rows": 7,
+      "equal": true
+    },
+    {
+      "table": "challenge_claims",
+      "rows": 5,
+      "equal": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+node_modules/
+.cache/
+cache/
+logs/
+runtime/
+*.local.cfg
+*.local.json
+.env*
+!*.example
+backups/
+.replxx_history
+/db/
+/server.cfg.bkp
+/resources/*
+!/resources/\[mx\]/
+!/resources/\[tests\]/
+!/resources/\[vendor\]/
+!/resources/\[mx-scripts\]/
+/resources/\[mx-scripts\]/*
+!/resources/\[mx-scripts\]/mx-gearbox/
+!/resources/\[mx-scripts\]/mx-turbo/
+resources/\[vendor\]/*
+!resources/\[vendor\]/.gitkeep
+
+# Server-owned operational data; preserve in backups, never deploy over it.
+/resources/\[mx\]/mx-freeroam-admin/bans.json
+/resources/\[mx\]/mx-freeroam-world/teleports.json

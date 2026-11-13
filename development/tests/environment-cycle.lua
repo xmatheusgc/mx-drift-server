@@ -1,0 +1,30 @@
+local T=CycleTest
+local cycle=WorldCycle.create(WorldConfig,function()return 1 end)
+local s=cycle.advance(0)
+assert(s.hour==14 and s.minute==0 and s.second==0 and s.weather=='CLEAR','initial server snapshot matches configuration')
+s=cycle.advance(4000) assert(s.minute==1 and s.second==0,'one game minute per four real seconds')
+s=cycle.advance(1500) assert(s.minute==1 and s.second==22,'fractional scheduling intervals accumulate without rounding drift')
+s=cycle.advance(900000-5500) assert(s.weather=='EXTRASUNNY' and s.weatherFrom=='CLEAR' and s.weatherBlend==0,'weather transition begins at the configured interval')
+s=cycle.advance(30000) assert(s.weatherBlend==.5,'all clients receive the same mid-transition blend')
+local late=cycle.advance(0) assert(late.weatherBlend==s.weatherBlend and late.hour==s.hour,'late joiner receives current phase, not a new transition')
+s=cycle.advance(30000) assert(s.weatherFrom==s.weather and s.weatherBlend==1,'transition settles after sixty real seconds')
+local copy=MX.copy(WorldConfig) copy.hour=23 copy.minute=59
+local midnight=WorldCycle.create(copy,function()return 1 end).advance(4000)
+assert(midnight.hour==0 and midnight.minute==0 and midnight.second==0,'clock wraps safely at midnight')
+local day=WorldCycle.create(WorldConfig,function()return 1 end).advance(96*60000)
+assert(day.hour==14 and day.minute==0,'one day takes ninety-six real minutes')
+copy.environment.weatherTransitionSeconds=copy.environment.weatherIntervalMinutes*60
+assert(not pcall(WorldCycle.create,copy),'overlapping weather periods are rejected')
+copy=MX.copy(WorldConfig) copy.environment.weatherTransitions.CLEAR={'BAD_WEATHER'}
+assert(not pcall(WorldCycle.create,copy),'unknown or unreachable weather rejected before native use')
+assert(coroutine.resume(T.thread))
+assert(GlobalState.mxEnvironment.hour==14,'real server thread publishes initial state immediately')
+T.time=5000 assert(coroutine.resume(T.thread))
+assert(GlobalState.mxEnvironment.minute==1 and GlobalState.mxEnvironment.second==15,'server thread advances by real elapsed time even if its tick is late')
+T.time=4294967290 assert(coroutine.resume(T.thread))
+T.time=10 assert(coroutine.resume(T.thread))
+local wrapCycle=WorldCycle.create(WorldConfig,function()return 1 end)
+wrapCycle.advance(4294967290) local wrap=wrapCycle.advance(16)
+assert(GlobalState.mxEnvironment.hour==wrap.hour and GlobalState.mxEnvironment.minute==wrap.minute and GlobalState.mxEnvironment.second==wrap.second,'uint32 timer rollover preserves elapsed progression')
+WorldConfig=T.oldConfig CreateThread=T.oldThread Wait=T.oldWait GetGameTimer=T.oldTimer GlobalState=T.oldGlobal
+print('Dynamic environment: progression, fractional elapsed time, midnight/day wrap, weather graph/blend, late join snapshot, configuration guards and real publisher thread passed with adapters.')

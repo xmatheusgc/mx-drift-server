@@ -1,0 +1,57 @@
+.workshop[data-screen=person] main.workshop-panel{inset:0;width:100%;max-width:none;overflow:visible;pointer-events:none}
+.workshop[data-screen=person] .heat-home-note{display:none}
+.workshop .character-entry-strip{position:absolute;left:5vw;right:5vw;bottom:12vh;display:flex;gap:5px;pointer-events:auto}
+.workshop .character-entry-strip button{flex:0 0 30%;font-size:clamp(21px,2.1vw,38px);min-height:15vh;text-align:center;justify-content:center}
+.workshop[data-screen=character] .workshop-panel{inset:0;width:100%;max-width:none;overflow:visible;pointer-events:none}
+.character-editor{position:absolute;inset:0;pointer-events:none;font-size:clamp(16px,1.25vw,23px)}
+.character-editor button,.character-editor input{pointer-events:auto}
+.character-heading{position:absolute;left:5vw;top:14vh;max-width:30vw;text-shadow:0 2px 10px #0009}
+.character-heading small{font-size:.7em;letter-spacing:.08em}
+.character-heading h2{font-size:2em;font-style:italic;font-weight:800;margin:5px 0;line-height:1}
+.character-heading p{font-size:.85em;margin:12px 0}
+.character-hotspot{position:absolute;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:44px;height:46px;min-width:44px;padding:0!important;background:transparent!important;outline:0!important}
+.character-hotspot span{position:absolute;left:48px;top:50%;transform:translateY(-50%);background:#111215c9;padding:7px 12px;font-size:1em;white-space:nowrap;visibility:hidden;pointer-events:none}
+.character-hotspot:focus span{visibility:visible}
+.character-hotspot i{position:relative;width:20px;height:20px;border:2px solid #f2f6faaa;border-radius:50%;box-shadow:0 0 0 4px #11121599;flex-shrink:0}
+.character-hotspot i:before{content:'';position:absolute;top:50%;left:100%;width:28px;height:1px;background:#f2f6fa99;visibility:hidden}
+.character-hotspot:focus i:before{visibility:visible}
+.character-hotspot i:after{content:'';position:absolute;inset:5px;border-radius:50%;background:#f2f6fa}
+.workshop[data-screen=character] .character-hotspot,.workshop[data-screen=character] .character-hotspot:focus{position:absolute;transform:translateY(-50%)}
+.character-hotspot:focus-visible span,.character-hotspot:hover span{background:var(--heat-white);color:var(--heat-ink)}
+.character-hotspot:focus-visible i,.character-hotspot:hover i{border-color:var(--heat-accent);box-shadow:0 0 0 5px #edff4220}
+.character-hotspot:focus-visible i:after{background:var(--heat-accent)}
+.workshop .character-strip{bottom:12vh;height:17vh;pointer-events:auto;scrollbar-width:none;padding:6px 0 10px;overflow-y:visible}
+.workshop .character-strip .heat-tile{flex-basis:16vw;min-width:150px;max-width:250px;min-height:12vh;font-size:1em;overflow:visible}
+.character-variation{position:absolute;left:5vw;top:34vh;width:26vw;max-width:380px;pointer-events:auto}
+.character-variation p{font-size:.8em;max-width:300px;text-shadow:0 1px 5px #000}
+.character-face-tabs{position:absolute;top:6vh;left:5vw;right:5vw;pointer-events:auto}
+.character-face-tabs .tab-items{scrollbar-width:none}
+.character-face-tabs button{font-size:.8em;padding:8px 12px;white-space:nowrap}
+.character-face-panel{position:absolute;left:5vw;top:28vh;bottom:17vh;width:29vw;max-width:450px;overflow:auto;scrollbar-width:none;pointer-events:auto;padding:5px 8px 20px}
+.character-face-panel p{font-size:.8em;opacity:.8;padding:0 7px}
+.character-editor .character-setting{background:#111215a8;margin:0 0 4px;padding:12px 15px;display:block;font-size:.9em}
+.character-setting>strong{display:block;margin-bottom:6px;font-weight:600}
+.character-setting:focus-within{background:var(--heat-white);color:var(--heat-ink)}
+.character-selector{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.character-selector button{background:transparent!important;color:inherit!important;font-weight:600!important;font-style:normal!important;text-transform:none!important;outline:0!important;font-size:1em;padding:4px 7px!important;min-height:30px}
+.character-choice-value{flex:1;min-width:0;text-align:center}
+.character-choice-value input{color:inherit;background:transparent;text-align:center;width:90px;padding:3px;outline:0!important}
+.character-choice-value small{display:block;font-size:.8em;opacity:.8}
+.character-choice-value input::-webkit-inner-spin-button{appearance:none;-webkit-appearance:none}
+.character-number{display:inline-flex;min-width:0}
+.character-slider input[type=range]{width:100%;color:inherit;accent-color:currentColor;display:block;height:20px;background:transparent;outline:0}
+.character-slider input[type=range]{appearance:none;-webkit-appearance:none}
+.character-slider input[type=range]::-webkit-slider-runnable-track{height:12px;border:0;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 10%);border-radius:0}
+.character-slider input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:currentColor;border:0;margin-top:-1px}
+.character-extremes{display:flex;justify-content:space-between;align-items:center;font-size:.8em;margin-top:5px}
+.character-editor .character-extremes input{background:transparent;color:inherit;text-align:center;width:95px;font-size:1.1em;padding:4px;outline:0}
+.character-detail{margin-bottom:18px}
+.character-detail h3{font-style:italic;font-size:1.2em;margin:12px 7px 8px;text-transform:uppercase}
+.character-fine-hint{position:absolute;left:5vw;bottom:11vh;margin:0;font-size:.7em;max-width:30vw;text-shadow:0 1px 5px #000}
+.character-footer{position:absolute;left:5vw;right:5vw;bottom:4.5vh;display:flex;justify-content:space-between;align-items:center;gap:12px;pointer-events:auto}
+.character-footer>button{font-size:.85em;padding:9px 18px}
+.character-footer>button:focus-visible{background:var(--heat-white);color:var(--heat-ink)}
+.character-save-status{font-size:.8em;text-shadow:0 1px 5px #000}
+.character-editor [data-confirm-dialog]{pointer-events:auto}
+@media(max-height:800px){.character-face-panel{width:31vw;top:27vh}.character-editor .character-setting{padding:8px 12px}.character-selector button{min-height:25px}.character-heading h2{font-size:1.8em}.character-detail{margin-bottom:12px}}
+@media(min-aspect-ratio:21/9){.character-heading,.character-face-tabs,.character-face-panel,.character-variation{left:8vw}.character-face-tabs{right:8vw}.workshop .character-entry-strip,.character-footer,.workshop .character-strip{left:8vw;right:8vw}.character-face-panel{width:24vw}.character-fine-hint{left:8vw}}

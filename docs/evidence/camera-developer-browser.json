@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-24",
+  "kind": "browser fixtures; no FiveM/native/real clipboard",
+  "results": [
+    {
+      "width": 1280,
+      "height": 720,
+      "cameraMovement": true,
+      "copyCapture": true,
+      "fov": true,
+      "viewport": true,
+      "restore": true,
+      "lobbyEscape": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "cameraMovement": true,
+      "copyCapture": true,
+      "fov": true,
+      "viewport": true,
+      "restore": true,
+      "lobbyEscape": true
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "cameraMovement": true,
+      "copyCapture": true,
+      "fov": true,
+      "viewport": true,
+      "restore": true,
+      "lobbyEscape": true
+    },
+    {
+      "width": 3440,
+      "height": 1440,
+      "cameraMovement": true,
+      "copyCapture": true,
+      "fov": true,
+      "viewport": true,
+      "restore": true,
+      "lobbyEscape": true
+    }
+  ]
+}

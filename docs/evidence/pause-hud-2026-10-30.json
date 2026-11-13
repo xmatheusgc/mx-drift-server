@@ -1,0 +1,29 @@
+{
+  "simulation": true,
+  "reports": [
+    {
+      "width": 1280,
+      "height": 720,
+      "passed": true,
+      "checks": "equal home option heights, fixed tab anchors, tabs excluded from focus, focus/scale gutters, no back/apply buttons, keyboard/native apply hints, shared preferences, general/server shortcut tabs, persisted transmission and social preferences, server bindings, no DOM/native duplicate, nested back, HUD/minimap, confirmation and native action"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "passed": true,
+      "checks": "equal home option heights, fixed tab anchors, tabs excluded from focus, focus/scale gutters, no back/apply buttons, keyboard/native apply hints, shared preferences, general/server shortcut tabs, persisted transmission and social preferences, server bindings, no DOM/native duplicate, nested back, HUD/minimap, confirmation and native action"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "passed": true,
+      "checks": "equal home option heights, fixed tab anchors, tabs excluded from focus, focus/scale gutters, no back/apply buttons, keyboard/native apply hints, shared preferences, general/server shortcut tabs, persisted transmission and social preferences, server bindings, no DOM/native duplicate, nested back, HUD/minimap, confirmation and native action"
+    },
+    {
+      "width": 3440,
+      "height": 1440,
+      "passed": true,
+      "checks": "equal home option heights, fixed tab anchors, tabs excluded from focus, focus/scale gutters, no back/apply buttons, keyboard/native apply hints, shared preferences, general/server shortcut tabs, persisted transmission and social preferences, server bindings, no DOM/native duplicate, nested back, HUD/minimap, confirmation and native action"
+    }
+  ]
+}

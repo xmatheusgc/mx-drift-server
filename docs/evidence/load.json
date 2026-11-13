@@ -1,0 +1,12 @@
+{
+  "kind": "synthetic_rule_filter_only",
+  "players": 20,
+  "snapshots": 600,
+  "comparisons": 240000,
+  "elapsedMs": 486.2454000000001,
+  "engine": "Fengari 0.1.5 / Node v24.18.0",
+  "cpu": "AMD Ryzen 5 5600X 6-Core Processor             ",
+  "hardwareThreads": 12,
+  "gameClients": 0,
+  "networkPacketsMeasured": false
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-18",
+  "build": "passed",
+  "typecheck": "passed",
+  "staticCheck": "passed",
+  "luaProductionFilesParsed": 67,
+  "regressions": "passed with native/network/SQL adapters; actual domain modules",
+  "reactivationCycles": 4,
+  "shiftKeyCodes": [16, 160, 161],
+  "durableMode": "garage_presets.drift_enabled, owner scoped, independent from cosmetics",
+  "databaseEvidence": "noclip-drift-database-2026-10-18.json",
+  "uiChanged": false,
+  "uiBrowserRepeated": false,
+  "serverRestarted": false,
+  "fiveMClientExecuted": false,
+  "pendingInGame": ["noclip reactivation and visibility", "physical Shift/controller input", "cinematic camera conflict", "drift after client reconnect and server restart", "handling physics and remote ownership"]
+}

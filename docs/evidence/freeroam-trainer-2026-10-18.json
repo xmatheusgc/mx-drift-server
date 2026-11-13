@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-18",
+  "kind": "source-and-browser-contract-verification",
+  "defaults": {"menu": "M", "noclip": "F2", "saveCheckpoint": "F3", "returnCheckpoint": "F4"},
+  "checkpointLifetime": "profile-epoch/session only; cleared on disconnect or world restart",
+  "checks": {
+    "buildIncludingTypeScript": "passed",
+    "staticCheck": "passed",
+    "luaFengari": "passed",
+    "luaFilesParsed": 58,
+    "browserUI": "passed",
+    "browserResolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "screenshotsInspected": ["trainer-tools-1280x720.png", "session-keyboard-1920x1080.png"],
+    "separateLintScript": false,
+    "databaseTestsRun": false,
+    "schemaChanges": false
+  },
+  "regressions": [
+    "actual menu callback calls OpenGarage and preserves failed replies",
+    "M/F2/F3/F4 bindings and NUI/native duplicate suppression",
+    "steering/throttle preserved outside text-entry modals",
+    "server-captured checkpoint ignores client-supplied coordinates",
+    "public context, owner, driver, passengers and actor epoch validated",
+    "noclip invalidates eligible attempts and blocks new activities",
+    "ambiguous ACK retains authorization until confirmed cleanup",
+    "retired grant cannot reactivate after stop",
+    "movement, focus pause, network-control loss and resource cleanup",
+    "optional drivecam suspension restored on stop",
+    "own-car reservation, other-car occupancy, collision rollback and retry",
+    "repair/clean preserve moving velocity; engine/doors toggle; flip/stop reset speed"
+  ],
+  "nativeAndNetworkAdaptersSimulated": true,
+  "browserDataAreExplicitFixtures": true,
+  "gameClients": 0,
+  "liveServerRestarted": false,
+  "validatedInFiveM": false,
+  "pendingRuntime": [
+    "driving and physical controller navigation with NUI",
+    "noclip movement, camera, collision and streaming",
+    "checkpoint return on actual map/MLO assets",
+    "two-client passengers, occupancy and owner migration",
+    "moving garage entry and restored confirmed car",
+    "existing custom bindings and third-party resources"
+  ]
+}

@@ -1,0 +1,14 @@
+import {useEffect,useLayoutEffect,useRef,useState,type MutableRefObject} from 'react';
+import {adjustControl} from './navigation';
+const defaults={version:1,height:0,frontCamber:0,rearCamber:0,frontOffset:0,rearOffset:0,wheelSize:1,wheelWidth:1};
+const labels:Record<string,string>={height:'Altura',frontCamber:'Cambagem dianteira',rearCamber:'Cambagem traseira',frontOffset:'Afastamento dianteiro',rearOffset:'Afastamento traseiro',wheelSize:'Diâmetro da roda',wheelWidth:'Largura da roda'};
+export function StancePanel({value,ranges,tuningWheels,unavailable={},busy,preview,nav}:{value:any;ranges:Record<string,number[]>;tuningWheels:boolean;unavailable?:Record<string,string>;busy:boolean;preview:(v:any)=>void;nav:MutableRefObject<(key:string)=>void>}){
+ const [draft,setDraft]=useState({...defaults,...(value||{})}),[selected,setSelected]=useState(0),selection=useRef(0),root=useRef<HTMLDivElement>(null),draftRef=useRef(draft);draftRef.current=draft;
+ const fields=Object.keys(labels).filter(k=>ranges[k]&&(tuningWheels||!['wheelSize','wheelWidth'].includes(k)));
+ const choose=(n:number)=>{selection.current=n;setSelected(n);};
+ function change(key:string,v:number){const next={...draftRef.current,[key]:v};draftRef.current=next;setDraft(next);preview(next);}
+ nav.current=key=>{if(busy)return;if(key==='up'||key==='down'){const step=key==='down'?1:-1;let next=selection.current+step;while(next>=0&&next<fields.length&&unavailable[fields[next]])next+=step;if(next>=0&&next<fields.length)choose(next);return;}if(['left','right'].includes(key)&&!unavailable[fields[selection.current]]){const el=root.current?.querySelectorAll<HTMLInputElement>('input[type=range]')[selection.current];if(el)adjustControl(el,key);}};
+ useLayoutEffect(()=>{const el=root.current?.querySelectorAll<HTMLInputElement>('input[type=range]')[selected];el?.focus({preventScroll:true});el?.closest('label')?.scrollIntoView({block:'nearest'});},[selected]);
+ useEffect(()=>{setDraft({...defaults,...(value||{})});},[value]);
+ return <div className="stance-panel" ref={root}><h3>Ajustar suspensão</h3><div className="stance-fields">{fields.map((key,i)=>{const [min,max,step]=ranges[key];return <label className={selected===i?'selected':''} key={key} onPointerDown={()=>choose(i)}><strong>{labels[key]}</strong>{unavailable[key]&&<small>{unavailable[key]}</small>}<div className="stance-track"><span>−</span><input aria-label={labels[key]} type="range" disabled={busy||!!unavailable[key]} min={min} max={max} step={step} value={(draft as any)[key]} onChange={e=>change(key,Number(e.target.value))}/><span>+</span></div><div className="stance-scale"><span>Menos</span><input aria-label={labels[key]+' valor'} type="number" disabled={busy||!!unavailable[key]} min={min} max={max} step={step} value={(draft as any)[key]} onChange={e=>change(key,Math.max(min,Math.min(max,Number(e.target.value))))}/><span>Mais</span></div></label>;})}</div></div>;
+}

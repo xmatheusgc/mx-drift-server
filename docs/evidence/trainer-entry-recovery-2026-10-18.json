@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-18",
+  "kind": "source-and-contract-regression-verification",
+  "implemented": {
+    "detachBeforeRoutingBucketChange": true,
+    "boundedPositionReplicationWaitMs": 3000,
+    "identityScopedOriginalCarRollback": true,
+    "occupiedSeatFallsBackBesideCar": true,
+    "collisionTasksFreezeAndControlsCleanup": true,
+    "failedEntryDoesNotPauseAgain": true,
+    "descriptiveMenuErrorAndReopen": true,
+    "trainerCursorCaptured": false,
+    "trainerMouseActions": false,
+    "gameCameraMouseAxesRetained": true,
+    "garageAndLobbyMousePreserved": true
+  },
+  "checks": {
+    "buildAndTypeScript": "passed",
+    "staticCheck": "passed",
+    "luaFengari": "passed",
+    "luaFilesParsed": 59,
+    "browserUI": "passed",
+    "browserResolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "screenshotInspected": "trainer-garage-error-1280x720.png",
+    "initialBrowserInfrastructureFailure": "Chromium closed during screenshot; rerun passed",
+    "diffWhitespaceCheck": "passed"
+  },
+  "runtimeAdaptersSimulated": true,
+  "browserDataAreExplicitFixtures": true,
+  "gameClients": 0,
+  "validatedInFiveM": false,
+  "liveServerRestarted": false,
+  "schemaOrSavedCustomizationChanges": false,
+  "pending": ["actual OneSync transfer timing", "live rollback and collision", "mouse camera look with keyboard-only NUI", "physical controller and native virtual keyboard", "two-client seat/owner/scope changes"]
+}

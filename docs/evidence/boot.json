@@ -1,0 +1,22 @@
+{
+    "server":  "FXServer-master SERVER v1.0.0.37175 win32",
+    "resources":  [
+                      "hardcap",
+                      "mx-freeroam-activities",
+                      "mx-freeroam-progression",
+                      "mx-freeroam-admin",
+                      "mx-freeroam-core",
+                      "mx-verification",
+                      "mx-freeroam-social",
+                      "mx-freeroam-menu",
+                      "mx-freeroam-vehicles",
+                      "mx-freeroam-world",
+                      "oxmysql",
+                      "pma-voice"
+                  ],
+    "database":  "MariaDB 10.4.32 / mx_freeroam_test",
+    "driver":  "oxmysql 2.14.3",
+    "gameClients":  0,
+    "oneSync":  "on",
+    "scope":  "Boot e testes SQL de domínio; sem validação de gameplay"
+}

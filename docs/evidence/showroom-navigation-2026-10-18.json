@@ -1,0 +1,21 @@
+{
+  "date":"2026-10-18",
+  "checks":{"build":"passed","typecheck":"passed","test":"passed","staticCheck":"passed","diffCheck":"passed; preexisting CRLF warning","browserUi":"passed in four resolutions","browserLobby":"passed in four resolutions"},
+  "viewports":[[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+  "regressions":[
+    "no brand/filter toolbar or unfiltered model request",
+    "results keyed by session, brand and page",
+    "old models hidden during a different brand load",
+    "late previous-brand response cannot replace current list",
+    "first controller arrow focuses an available option from body focus",
+    "controller/keyboard computed backgrounds match actual light selection palette",
+    "selected text has dark high-contrast ink",
+    "catalog action requests respect server minimum action interval",
+    "showroom reopens at brands and restores last brand focus"
+  ],
+  "visualInspection":["showroom-controller-1280x720.png","showroom-controller-1920x1080.png"],
+  "browserReport":"ui.json",
+  "transportFixtures":true,
+  "gameClients":0,
+  "remainingInGame":["physical controller switching after mouse","brand/page navigation with real assets","focus behavior in FiveM CEF"]
+}

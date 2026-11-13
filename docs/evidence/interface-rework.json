@@ -1,0 +1,53 @@
+﻿{
+    "dateLocal":  "2026-10-16",
+    "fxserver":  "37175",
+    "port":  30131,
+    "database":  "mx_freeroam_test_experience",
+    "resources":  [
+                      "mx-freeroam-admin",
+                      "mx-freeroam-progression",
+                      "mx-freeroam-activities",
+                      "mx-freeroam-drivecam",
+                      "mx-freeroam-core",
+                      "mx-freeroam-experience",
+                      "mx-freeroam-menu",
+                      "mx-freeroam-social",
+                      "mx-freeroam-vehicles",
+                      "mx-freeroam-world"
+                  ],
+    "typecheck":  "passed",
+    "build":  "passed",
+    "staticCheck":  "passed",
+    "lint":  "No ESLint configured; existing structural npm run check executed",
+    "luaFiles":  45,
+    "existingRuleTests":  93,
+    "previewControllerUnitTests":  26,
+    "unitNatives":  "simulated, explicitly not game validation",
+    "latestPreviewQueue":  "passed",
+    "runtimeSqlChecks":  10,
+    "uiResolutions":  [
+                          "1280x720",
+                          "1920x1080",
+                          "2560x1440",
+                          "3440x1440"
+                      ],
+    "browserData":  "UI contract fixtures only",
+    "gameClients":  0,
+    "temporaryPresentation":  {
+                                  "y":  -3088.07,
+                                  "heading":  300,
+                                  "z":  5,
+                                  "x":  178.62
+                              },
+    "separateExitConfig":  true,
+    "preservedPowertrainHashes":  11,
+    "activeDatabaseChanged":  false,
+    "pending":  [
+                    "FiveM native/entity/streaming transitions",
+                    "Two clients and simultaneous exit occupancy",
+                    "Full visual fidelity over GTA scene and camera calibration",
+                    "Connected-source exit reservation test",
+                    "Native keyboard and game controls/cursor"
+                ],
+    "existing30120Process":  "Not restarted"
+}

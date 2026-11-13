@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-17",
+  "observedFailures": {
+    "play": 3,
+    "preview": 1,
+    "enter": 5
+  },
+  "source": "txData/default/logs/fxserver.log; counters only, no player identifiers",
+  "runtimeResourceInventory": "All ten mx-freeroam resources and oxmysql listed by live info.json",
+  "savedDataReadOnlyInspection": {
+    "appearanceJsonValid": true,
+    "garageJsonValid": true,
+    "selectedModel": "elegy",
+    "schemaVersion": 1
+  },
+  "fixedIssues": [
+    "Cfx export errors stringify structured failures; preserve domain code/message",
+    "Unexpected errors now log bounded redacted details plus route/request reference",
+    "Client rejection distinguished from timeout and names its domain/action",
+    "Stop presentation and confirm detached driver before deleting workshop preview"
+  ],
+  "rootExceptionFromOriginalLogs": "Not available: original logger discarded exception details",
+  "followupClientError": {
+    "route": "vehicles/apply",
+    "code": "CLIENT_ERROR",
+    "detailCode": "STANCE",
+    "savedWheelSize": 1,
+    "savedWheelWidth": 1,
+    "cause": "Neutral dimensions unnecessarily invoked wheel resizing setters; native rejection aborted unrelated stance application",
+    "fix": "Only resize dimensions that need changing, track modified dimensions for restoration, preserve validation for actual resizing",
+    "savedDataModified": false,
+    "stanceRegressionChecks": 32
+  },
+  "verification": "Lua/Fengari regressions and static checks passed; no FiveM client reproduction"
+}

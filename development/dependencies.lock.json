@@ -1,0 +1,60 @@
+﻿{
+    "fxserver":  {
+                     "build":  "37175",
+                     "platform":  "win32",
+                     "exeSha256":  "0B658FCA46E5923F2B42EAB625D8BA5AAE217D68992FCD04785EFD5FDF951D33",
+                     "source":  "https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/",
+                     "note":  "Artefato local preservado; hash do executável, não do pacote inteiro"
+                 },
+    "database":  {
+                     "engine":  "MariaDB",
+                     "testedVersion":  "10.4.32",
+                     "minimum":  "10.4",
+                     "license":  "GPL-2.0",
+                     "source":  "https://mariadb.com/docs/server/"
+                 },
+    "oxmysql":  {
+                    "version":  "2.14.3",
+                    "source":  "https://github.com/overextended/oxmysql/releases/download/v2.14.3/oxmysql.zip",
+                    "sha256":  "F6DB8F612A36A8A75FCCDE300E8C4135696B5BBCA5770CD7F26458949E1F7872",
+                    "license":  "LGPL-3.0-or-later",
+                    "minimumFxserver":  12913,
+                    "bundledMysql2":  "3.24.5"
+                },
+    "pma-voice":  {
+                      "version":  "6.6.2",
+                      "source":  "https://github.com/AvarianKnight/pma-voice/archive/refs/tags/v6.6.2.zip",
+                      "sha256":  "1D6380E04FD80DBE2F2733D6C62B97C50E5362E375E85AAADF5C462892CDEBE8",
+                      "license":  "MIT",
+                      "optional":  true
+                  },
+    "node":  {
+                 "tested":  "24.18.0"
+             },
+    "npm":  {
+                "tested":  "11.16.0",
+                "lockfile":  "package-lock.json"
+            },
+    "fonts":  {
+                  "family":  "Barlow Condensed",
+                  "license":  "SIL-OFL-1.1",
+                  "files":  [
+                                {
+                                    "file":  "development/ui/public/fonts/BarlowCondensed-BoldItalic.ttf",
+                                    "source":  "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-BoldItalic.ttf",
+                                    "sha256":  "D8694F65CD70C3E5E600EAD37657AAB0ADB5F63B275D0C1F6F4A7046DE222145"
+                                },
+                                {
+                                    "file":  "development/ui/public/fonts/BarlowCondensed-SemiBold.ttf",
+                                    "source":  "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf",
+                                    "sha256":  "7B619D14BC2327509A9EF32B0890F709626F7ECC9FF61191C2A4314C5499D2D9"
+                                },
+                                {
+                                    "file":  "development/ui/public/fonts/OFL.txt",
+                                    "source":  "https://raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/OFL.txt",
+                                    "sha256":  "186D750EB496A4C17A76385F82BE6AEA2AC1CF2DE074A811D63786CF374EA73F"
+                                }
+                            ],
+                  "acquiredLocalDate":  "2026-10-16"
+              }
+}

@@ -1,0 +1,9 @@
+fx_version 'cerulean'
+game 'gta5'
+dependencies {'mx-freeroam-core','mx-freeroam-world','mx-freeroam-vehicles','mx-freeroam-social','mx-freeroam-activities','mx-freeroam-progression','mx-freeroam-admin','mx-freeroam-experience','mx-freeroam-drivecam'}
+shared_script '@mx-freeroam-core/shared.lua'
+client_scripts {'navigation.lua','bindings.lua','binding-capture.lua','vehicle-input.lua','hud.lua','client.lua'}
+ui_page 'dist/index.html'
+loadscreen 'loadscreen/index.html'
+loadscreen_manual_shutdown 'yes'
+files {'dist/index.html','dist/assets/*','dist/fonts/*','loadscreen/*'}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "timezone": "America/Sao_Paulo",
+  "kind": "code_and_simulated_regression_checks",
+  "build_and_typecheck": "passed",
+  "static_and_manifests": "passed",
+  "cold_join_and_rpc_boundary_tests": "passed",
+  "preview_lifecycle_assertions": 32,
+  "lua_files_parsed": 72,
+  "full_test_command": {
+    "status": "failed",
+    "phase": "final installed ER34N handling contract",
+    "reason": "CCarHandlingData absent; three empty Item type entries in installed handling.meta",
+    "asset_modified_by_this_task": false,
+    "functional_regressions_before_final_asset_check": "passed"
+  },
+  "browser": {
+    "ui": "passed",
+    "lobby_loading_onboarding": "passed",
+    "resolutions": [[1280, 720], [1920, 1080], [2560, 1440], [3440, 1440]],
+    "executable": "installed Chrome via MX_CHROMIUM",
+    "transport": "simulated"
+  },
+  "limits_ms": {
+    "model_load": 30000,
+    "scene_prepare": 30000,
+    "scene_stability": 250,
+    "model_or_scene_callback": 35000,
+    "other_callback": 12000,
+    "lua_request": 120000,
+    "nui_fetch": 125000
+  },
+  "game_clients_used_for_verification": 0,
+  "live_server_restarted": false,
+  "database_modified": false,
+  "network_or_firewall_modified": false,
+  "remaining": [
+    "Full txAdmin restart and reconnect clients",
+    "Real cold join and workshop MLO streaming from remote client",
+    "Rapid mod selection and navigation during loading",
+    "Separate repair or review of installed ER34N handling contract"
+  ]
+}

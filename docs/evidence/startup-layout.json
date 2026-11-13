@@ -1,0 +1,211 @@
+{
+  "categories": [
+    {
+      "category": "[vendor]",
+      "count": 2,
+      "resources": [
+        "oxmysql",
+        "pma-voice"
+      ]
+    },
+    {
+      "category": "[mx]",
+      "count": 10,
+      "resources": [
+        "mx-freeroam-activities",
+        "mx-freeroam-admin",
+        "mx-freeroam-core",
+        "mx-freeroam-drivecam",
+        "mx-freeroam-experience",
+        "mx-freeroam-menu",
+        "mx-freeroam-progression",
+        "mx-freeroam-social",
+        "mx-freeroam-vehicles",
+        "mx-freeroam-world"
+      ]
+    },
+    {
+      "category": "[standalone]",
+      "count": 2,
+      "resources": [
+        "bob74_ipl",
+        "limits"
+      ]
+    },
+    {
+      "category": "[audio]",
+      "count": 13,
+      "resources": [
+        "aq09mazbpze",
+        "aq10nisvr38dett",
+        "aq26mit4b11t",
+        "aq2jzgterace",
+        "aq57mit4g63t",
+        "aq58honk20a",
+        "aq97toy1jzgte",
+        "aqtoy2jzstock",
+        "evorllyeng",
+        "kc24r33gts",
+        "kc28sr180",
+        "rb26dett",
+        "rotary7"
+      ]
+    },
+    {
+      "category": "[wheels]",
+      "count": 2,
+      "resources": [
+        "hotboiwheels",
+        "jdmrims"
+      ]
+    },
+    {
+      "category": "[vehicles]",
+      "count": 30,
+      "resources": [
+        "180sx",
+        "a70",
+        "a80",
+        "chaser90",
+        "cp9a",
+        "cresta",
+        "cz4a",
+        "dc5",
+        "er34",
+        "er34n",
+        "fd",
+        "fd2",
+        "fk2",
+        "fk8",
+        "is300",
+        "jettagli25",
+        "mitgalant92",
+        "mk2100",
+        "n180sx-n180sxse",
+        "na6",
+        "nis13",
+        "nis15",
+        "nisa31",
+        "nsilvias14k-nsilvias14z",
+        "nskygttr34-nskygtrr34",
+        "r35",
+        "s14",
+        "sc300a",
+        "tchaserjzx100",
+        "toychaser91"
+      ]
+    },
+    {
+      "category": "[maps]",
+      "count": 15,
+      "resources": [
+        "LosSantosRemoved",
+        "Shuto_betsy",
+        "SunCityBridge",
+        "SunCityBushes",
+        "SunCityClutter",
+        "SunCityLights",
+        "SunCityMinami",
+        "SunCityTerrainRoad",
+        "SunCityTrees",
+        "basedfukuokawmmt",
+        "basedosakawmmt",
+        "hashi_wheels",
+        "ikebukuro_moved_release",
+        "ps-tuners",
+        "ugase_city_by_based"
+      ]
+    }
+  ],
+  "dependencyOrder": [
+    "oxmysql",
+    "pma-voice",
+    "mx-freeroam-core",
+    "mx-freeroam-world",
+    "mx-freeroam-vehicles",
+    "mx-freeroam-activities",
+    "mx-freeroam-admin",
+    "mx-freeroam-experience",
+    "mx-freeroam-drivecam",
+    "mx-freeroam-social",
+    "mx-freeroam-progression",
+    "mx-freeroam-menu",
+    "bob74_ipl",
+    "limits",
+    "aq09mazbpze",
+    "aq10nisvr38dett",
+    "aq26mit4b11t",
+    "aq2jzgterace",
+    "aq57mit4g63t",
+    "aq58honk20a",
+    "aq97toy1jzgte",
+    "aqtoy2jzstock",
+    "evorllyeng",
+    "kc24r33gts",
+    "kc28sr180",
+    "rb26dett",
+    "rotary7",
+    "hotboiwheels",
+    "jdmrims",
+    "180sx",
+    "a70",
+    "a80",
+    "chaser90",
+    "cp9a",
+    "cresta",
+    "cz4a",
+    "dc5",
+    "er34",
+    "er34n",
+    "fd",
+    "fd2",
+    "fk2",
+    "fk8",
+    "is300",
+    "jettagli25",
+    "mitgalant92",
+    "mk2100",
+    "n180sx-n180sxse",
+    "na6",
+    "nis13",
+    "nis15",
+    "nisa31",
+    "nsilvias14k-nsilvias14z",
+    "nskygttr34-nskygtrr34",
+    "r35",
+    "s14",
+    "sc300a",
+    "tchaserjzx100",
+    "toychaser91",
+    "basedfukuokawmmt",
+    "basedosakawmmt",
+    "hashi_wheels",
+    "ikebukuro_moved_release",
+    "LosSantosRemoved",
+    "ps-tuners",
+    "Shuto_betsy",
+    "SunCityBridge",
+    "SunCityBushes",
+    "SunCityClutter",
+    "SunCityLights",
+    "SunCityMinami",
+    "SunCityTerrainRoad",
+    "SunCityTrees",
+    "ugase_city_by_based"
+  ],
+  "capabilities": [
+    {
+      "resource": "oxmysql",
+      "capability": "/server:12913"
+    },
+    {
+      "resource": "pma-voice",
+      "capability": "/onesync"
+    }
+  ],
+  "generatedDirectories": {
+    "cache": true,
+    "db/default": true
+  },
+  "scope": "Filesystem and manifest verification only; live server was not restarted; no FiveM asset validation"
+}

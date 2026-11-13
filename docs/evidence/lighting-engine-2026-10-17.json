@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-17",
+  "hierarchy": {"Neons":["Cor do neon","Layout do neon"],"Faróis":["Farol de xenon (toggle)","Cor dos faróis (native palette and RGB)"]},
+  "preview": {"transient":true,"preservesSavedLayoutOnColourConfirmation":true,"restoresConfirmedState":true,"engineIdleDefault":true,"engineOffConfigurable":true,"sessionIdAndOwnedEntityChecked":true,"asyncLocalUpdatesSerialized":true},
+  "engine": {"startupDelayMs":250,"delayAfterNativeRunningConfirmation":true,"noInjectedRpmDuringCrankOrWarmup":true,"throttleBlockedUntilReady":true,"handbrakeHeld":true,"handlingChanged":false},
+  "verification": {"typecheck":"passed","build":"passed","staticCheck":"passed","luaSuite":"passed with native/SQL adapters","newNeonStartupRegressions":10,"luaFilesParsed":54,"browser":"test:ui passed in four resolutions","resolutions":[[1280,720],[1920,1080],[2560,1440],[3440,1440]],"report":"ui.json","visuallyInspected":["headlight-color-1280x720.png","neon-toggles-1920x1080.png"],"gameClients":0},
+  "schemaChanged":false,
+  "playerDataRemoved":false,
+  "serverRestarted":false,
+  "pendingInFiveM":["Actual emitted neon on installed models", "Startup sound and body vibration", "Physical throttle/controller behavior and repeated scene exits"]
+}

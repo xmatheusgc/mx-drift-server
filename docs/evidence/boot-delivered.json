@@ -1,0 +1,23 @@
+{
+    "server":  "FXServer-master SERVER v1.0.0.37175 win32",
+    "resources":  [
+                      "hardcap",
+                      "mx-freeroam-activities",
+                      "mx-freeroam-progression",
+                      "mx-freeroam-admin",
+                      "mx-freeroam-core",
+                      "mx-freeroam-social",
+                      "mx-freeroam-menu",
+                      "mx-freeroam-vehicles",
+                      "mx-freeroam-world",
+                      "oxmysql",
+                      "pma-voice"
+                  ],
+    "database":  "MariaDB 10.4.32 / mx_freeroam_clean",
+    "driver":  "oxmysql 2.14.3",
+    "schema":  "004_cosmetic_ownership.sql",
+    "limitedApplicationUser":  true,
+    "gameClients":  0,
+    "oneSync":  "on",
+    "scope":  "Boot da configuração entregue com banco novo; sem validação de gameplay"
+}

@@ -1,0 +1,1 @@
+ALTER TABLE garage_presets ADD COLUMN IF NOT EXISTS drift_enabled TINYINT(1) NOT NULL DEFAULT 0;

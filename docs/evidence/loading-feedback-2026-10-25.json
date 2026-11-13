@@ -1,0 +1,62 @@
+[
+  {
+    "width": 1280,
+    "height": 720,
+    "slowJoin": true,
+    "realEventsClearStaleHint": true,
+    "confirmedErrorPreserved": true,
+    "noFalseGlobalPercent": true,
+    "sceneFeedbackAboveFade": true,
+    "cleanupRevealsUI": true,
+    "noNativeFadeLoading": true,
+    "delayedCompactPreview": true,
+    "longPreviewDetails": true,
+    "previewFailureCleanup": true,
+    "scope": "browser with simulated time and messages; no FiveM client"
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "slowJoin": true,
+    "realEventsClearStaleHint": true,
+    "confirmedErrorPreserved": true,
+    "noFalseGlobalPercent": true,
+    "sceneFeedbackAboveFade": true,
+    "cleanupRevealsUI": true,
+    "noNativeFadeLoading": true,
+    "delayedCompactPreview": true,
+    "longPreviewDetails": true,
+    "previewFailureCleanup": true,
+    "scope": "browser with simulated time and messages; no FiveM client"
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "slowJoin": true,
+    "realEventsClearStaleHint": true,
+    "confirmedErrorPreserved": true,
+    "noFalseGlobalPercent": true,
+    "sceneFeedbackAboveFade": true,
+    "cleanupRevealsUI": true,
+    "noNativeFadeLoading": true,
+    "delayedCompactPreview": true,
+    "longPreviewDetails": true,
+    "previewFailureCleanup": true,
+    "scope": "browser with simulated time and messages; no FiveM client"
+  },
+  {
+    "width": 3440,
+    "height": 1440,
+    "slowJoin": true,
+    "realEventsClearStaleHint": true,
+    "confirmedErrorPreserved": true,
+    "noFalseGlobalPercent": true,
+    "sceneFeedbackAboveFade": true,
+    "cleanupRevealsUI": true,
+    "noNativeFadeLoading": true,
+    "delayedCompactPreview": true,
+    "longPreviewDetails": true,
+    "previewFailureCleanup": true,
+    "scope": "browser with simulated time and messages; no FiveM client"
+  }
+]

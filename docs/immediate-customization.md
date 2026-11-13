@@ -1,0 +1,11 @@
+# Aplicação imediata e controles unificados — 17/10/2026
+
+Substitui o fluxo de rascunho com Salvar/Descartar do editor de veículos. Confirmação de personagem e preferências mantêm seus fluxos próprios.
+
+- `ControlHints` é compartilhado por lobby (incluindo configurações/social), abas da garagem e menu de sessão. A personalização exibe somente Selecionar ou Aplicar customização, conforme o nível. As indicações não são botões clicáveis.
+- Ícones solid oficiais (arquivos SVG sem sufixo `_outline`) do Kenney Input Prompts 1.5A, distribuição oficial: https://kenney.nl/assets/input-prompts. Licença CC0 original em `docs/licenses/kenney-input-prompts.txt`; subconjunto de 15 vetores em `ui/src/assets/input`. URLs resolvidas pelo Vite e incorporadas no build local, sem CDN. O arquivo ZIP original foi baixado para `runtime`, fora dos assets servidos.
+- Enter, A/X ou clique na peça confirmam e persistem imediatamente no veículo salvo que está em edição, sem sair do editor. RGB, texto, ajuste numérico e restauração de suspensão usam o mesmo caminho. Instalar uma família de rodas depende da confirmação do modelo de roda, preservando os índices correspondentes.
+- Navegar destaca e mostra prévia sem gravação. Voltar abandona apenas essa prévia e recupera a última configuração confirmada. Alterações confirmadas não abrem diálogo de Salvar/Descartar.
+- Cada gravação usa revisão atual do veículo e da garagem. O retorno autoritativo atualiza as revisões para a próxima peça. O journal existente mantém chave de operação para retentativa de resposta perdida; não há novo schema ou migration. Falhas mostram erro e não marcam a peça como aplicada antes de confirmação. A recuperação permanece no editor.
+
+Validação: build/typecheck, análise estática, suíte Lua e navegador em quatro resoluções. O teste de navegador exige revisões atualizadas entre confirmações, testa teclado/clique, RGB/altura/placa, prévia sem gravação, reabertura e retentativa com a mesma chave de operação após resposta perdida. Verifica também os ícones carregados e a ausência dos botões de gravação no editor. Esses testes usam fixtures de transporte, não comprovam banco ou natives no jogo. Aplicação visual e reconexão com persistência real ainda requerem FiveM nesta entrega.

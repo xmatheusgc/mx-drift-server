@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-17",
+  "checks": {
+    "test": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "check": "passed",
+    "diffCheck": "passed; preexisting server.cfg CRLF normalization warning",
+    "browser": "passed at 1280x720, 1920x1080, 2560x1440 and 3440x1440"
+  },
+  "regressions": [
+    "parent yields back/navigation to editor and modal",
+    "held Escape returns one level only",
+    "controller back preserves hierarchy",
+    "confirmed part has CHECK while highlighted preview is not persisted",
+    "stance Enter and pointer release remain preview",
+    "stance exit review supports keep, restore and cancel with keyboard, mouse and controller messages",
+    "analog quarter throttle settles below limiter",
+    "zero, negative and noisy trigger input do not accelerate",
+    "startup gate blocks throttle and scripted RPM until running acknowledgment plus 150ms",
+    "keyboard heartbeat cannot overwrite controller throttle",
+    "modal blocks keyboard acceleration"
+  ],
+  "visualInspection": "stance-review-1280x720.png; shared full-width modal, no duplicate footer hints",
+  "browserReport": "ui.json",
+  "gameClients": 0,
+  "nativeAdaptersSimulated": true,
+  "browserPersistenceFixtures": true,
+  "liveDatabaseModified": false,
+  "remainingInGame": [
+    "physical controller trigger and device switching",
+    "starter and limiter sound, idle timeout and body vibration",
+    "ER34N and vanilla presentation behavior",
+    "confirmed suspension recovery after reconnect"
+  ]
+}

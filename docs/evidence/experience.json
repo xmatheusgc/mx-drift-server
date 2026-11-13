@@ -1,0 +1,40 @@
+﻿{
+    "dateLocal":  "2026-10-16",
+    "server":  "FXServer 37175",
+    "database":  "mx_freeroam_clean",
+    "schema":  "005_experience.sql",
+    "port":  30131,
+    "mxResources":  [
+                        "mx-freeroam-admin",
+                        "mx-freeroam-progression",
+                        "mx-freeroam-activities",
+                        "mx-freeroam-drivecam",
+                        "mx-freeroam-core",
+                        "mx-freeroam-experience",
+                        "mx-freeroam-menu",
+                        "mx-freeroam-social",
+                        "mx-freeroam-vehicles",
+                        "mx-freeroam-world"
+                    ],
+    "gameClients":  0,
+    "build":  "passed",
+    "luaFiles":  44,
+    "existingRules":  43,
+    "experienceMathTests":  38,
+    "cameraOwnershipQueryTests":  12,
+    "runtimeSqlDomainChecks":  10,
+    "uiResolutions":  [
+                          "1280x720",
+                          "1920x1080",
+                          "2560x1440",
+                          "3440x1440"
+                      ],
+    "preservedPowertrainFiles":  11,
+    "preservedHashesMatch":  true,
+    "backupBefore005Sha256":  "4E374AAA42D844B1BC2D2D003F5614FB94F100B6E9EDEE019E8657604F483C48",
+    "limitations":  [
+                        "No FiveM clients; visual/native/gamepad/multiplayer acceptance pending",
+                        "Browser presentation fixtures do not validate GTA scene",
+                        "Existing server on 30120 was not restarted"
+                    ]
+}

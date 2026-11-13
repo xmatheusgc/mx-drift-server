@@ -1,0 +1,146 @@
+import '../scripts/workspace.mjs';
+import {chromium} from 'playwright';
+import {createServer} from 'node:http';
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=path.resolve('resources/[mx]/mx-freeroam-menu');
+const server=createServer(async(req,res)=>{try{
+ const url=req.url==='/'?'/dist/index.html':req.url.startsWith('/fonts/')?'/dist'+req.url:req.url;
+ const file=path.resolve(root,'.'+decodeURIComponent(url.split('?')[0]));
+ if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}
+ res.setHeader('Content-Type',file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':file.endsWith('.ttf')?'font/ttf':'text/html');res.end(await readFile(file));
+}catch{res.writeHead(404).end();}});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const browser=await chromium.launch({executablePath:process.env.MX_CHROMIUM,headless:true});
+const reports=[];
+try{
+ for(const [width,height] of [[1280,720],[1920,1080],[2560,1440],[3440,1440]]){
+  const page=await browser.newPage({viewport:{width,height}}),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  const post=data=>page.evaluate(data=>window.dispatchEvent(new MessageEvent('message',{data})),data);
+  const base=`http://127.0.0.1:${server.address().port}`;
+  async function corner(container,spinner,copy){
+   const box=await page.locator(container).boundingBox(),ring=await page.locator(spinner).boundingBox(),text=await page.locator(copy).boundingBox();
+   assert(box.x>width*.5&&box.y>height*.65,'feedback stays in the bottom-right corner');
+   assert(box.x+box.width<=width-20&&box.y+box.height<=height-20,'safe margin inside viewport');
+   assert(text.x+text.width<ring.x,'text is to the left of the spinner');
+   assert(box.width*box.height<width*height*.1,'feedback stays compact, including long messages');
+  }
+  await page.clock.install();await page.goto(base+'/loadscreen/index.html');
+  assert(await page.locator('#help').isHidden());assert(await page.locator('#timing').isHidden());
+  await corner('footer','.loading-spinner','.loading-copy');
+  await page.screenshot({path:`docs/evidence/loading-corner-short-${width}x${height}.png`});
+  await post({eventName:'loadProgress',loadFraction:.42});
+  await page.clock.fastForward(65000);
+  assert.match(await page.locator('#help').textContent(),/pode estar preparando arquivos/);
+  assert.doesNotMatch(await page.locator('#help').textContent(),/[Rr]econect/);
+  assert.equal(await page.locator('#timing').textContent(),'1:05 de espera');
+  await page.screenshot({path:`docs/evidence/loading-slow-${width}x${height}.png`});
+  await page.clock.fastForward(240000);
+  assert.match(await page.locator('#help').textContent(),/Se ele também estiver parado/,'prolonged silence offers conditional recovery, without declaring connection failure');
+  await corner('footer','.loading-spinner','.loading-copy');
+  await post({eventName:'startDataFileEntries',count:3});
+  await post({eventName:'onDataFileEntry',name:'fixture'});
+  assert.match(await page.locator('#detail').textContent(),/1 de 3/);
+  assert.doesNotMatch(await page.locator('#help').textContent(),/Sem avanço|Ainda aguardando/);
+  await post({eventName:'loadProgress',loadFraction:1});
+  assert.equal(await page.locator('progress').getAttribute('value'),null);
+  await post({eventName:'mxStage',error:true,message:'Falha confirmada de teste'});
+  assert.equal(await page.locator('.loading-spinner').evaluate(e=>getComputedStyle(e).animationName),'none','error is not shown as ongoing work');
+  await corner('footer','.loading-spinner','.loading-copy');
+  await page.screenshot({path:`docs/evidence/loading-corner-error-${width}x${height}.png`});
+  await page.clock.fastForward(70000);
+  assert.match(await page.locator('#help').textContent(),/Reconecte/);
+  await post({eventName:'onDataFileEntry',name:'late'});
+  assert.equal(await page.locator('#detail').textContent(),'Falha confirmada de teste');
+  await post({eventName:'mxStage',message:'Carregando interior da oficina'});
+  assert.doesNotMatch(await page.locator('#help').textContent(),/Reconecte/);
+  assert(await page.locator('#detail').isHidden(),'routine native detail is not shown');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  assert.equal(await page.locator('.loading-spinner').evaluate(e=>getComputedStyle(e).animationName),'none');
+  await page.clock.resume();await page.goto(base+'/dist/index.html');
+  await page.locator('.loading-status').waitFor({state:'attached'});
+  await post({type:'screenFade',active:true});
+  await page.clock.fastForward(250);
+  assert(await page.locator('.loading-status').isHidden(),'short native preview fade never creates another loading screen');
+  await post({type:'screenFade',active:false});
+  await post({type:'loadingStatus',active:true,message:'Carregando interior da oficina, colisão do piso'});
+  await post({type:'screenFade',active:true});
+  await page.locator('.loading-status:not([hidden])').waitFor();
+  assert.equal(await page.locator('.loading-status>div').evaluate(e=>getComputedStyle(e).visibility),'hidden','scene is protected immediately but short transition does not flash a spinner');
+  await page.clock.fastForward(700);
+  assert(await page.locator('.loading-status p').isHidden());assert(await page.locator('.loading-status small').isHidden());
+  assert.equal(await page.locator('.loading-status strong').textContent(),'Preparando garagem…');
+  assert.equal(await page.locator('.loading-status .vehicle-loading-spinner').evaluate(e=>getComputedStyle(e).animationName),'none');
+  await corner('.loading-status>div','.loading-status .vehicle-loading-spinner','.loading-status .loading-copy');
+  await page.screenshot({path:`docs/evidence/workshop-corner-short-${width}x${height}.png`});
+  await page.clock.fastForward(10000);
+  assert.match(await page.locator('.loading-status p').textContent(),/primeira visita/);
+  assert(await page.locator('.loading-status small').isHidden(),'no clock during an ordinary wait');
+  await page.clock.fastForward(55000);
+  assert.match(await page.locator('.loading-status small').textContent(),/1:05|1:06/);
+  await page.screenshot({path:`docs/evidence/workshop-slow-${width}x${height}.png`});
+  const dimensions=await page.locator('.loading-status>div').boundingBox();
+  assert(dimensions.x>=0&&dimensions.y>=0&&dimensions.x+dimensions.width<=width&&dimensions.y+dimensions.height<=height);
+  await corner('.loading-status>div','.loading-status .vehicle-loading-spinner','.loading-status .loading-copy');
+  const elapsed=await page.locator('.loading-status small').textContent();
+  await post({type:'loadingStatus',active:true,message:'Cenário pronto. Preparando o veículo'});
+  assert.equal(await page.locator('.loading-status small').textContent(),elapsed,'heartbeat does not restart elapsed time');
+  assert.equal(await page.locator('.loading-status strong').textContent(),'Preparando carro…');
+  await post({type:'loadingStatus',active:false});
+  assert(await page.locator('.loading-status').isHidden(),'completed operation cannot be replaced by a generic loading page during fade-in');
+  await post({type:'screenFade',active:false});
+  await page.locator('.loading-status').waitFor({state:'hidden'});
+  assert.equal(await page.locator('html').getAttribute('data-screen-loading'),null);
+  await post({type:'loadingStatus',active:true});await page.clock.fastForward(700);
+  assert(await page.locator('.loading-status p').isHidden(),'next operation starts without old slow-wait text');
+  await post({type:'loadingStatus',active:false});
+  // Real Workshop + LoadingHint, transport fixture with manually completed requests.
+  await page.addInitScript(()=>window.GetParentResourceName=()=> 'mx-freeroam-menu');
+  let pendingPreview;
+  await page.route('https://mx-freeroam-menu/**',async route=>{
+   const body=route.request().postDataJSON()??{};
+   if(body.domain==='experience'&&body.action==='preview'){pendingPreview=route;return;}
+   await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,data:{}})});
+  });
+  await page.goto(base+'/dist/index.html');await page.locator('.loading-status').waitFor({state:'attached'});
+  await page.evaluate(()=>document.body.style.background='#273e48');
+  const car={id:'fixture-one',model:'futo',name:'Carro de teste',available:true};
+  await post({type:'workshop',state:{phase:'workshop',token:'FIXTURE',characterCompleted:true,vehicleCompleted:true,selected:car,garage:[car,{...car,id:'fixture-two',name:'Outro carro'}]}});
+  await page.getByRole('button',{name:'Carros salvos',exact:true}).click();
+  const select=page.locator('.heat-tile').first();
+  async function pending(){for(let n=0;!pendingPreview&&n<100;n++)await new Promise(r=>setTimeout(r,10));assert(pendingPreview,'preview transport reached');}
+  async function finish(ok=true){const route=pendingPreview;pendingPreview=null;await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(ok?{ok:true,data:{id:'preview',properties:{},capabilities:{}}}:{ok:false,code:'MODEL',message:'Modelo indisponível'})});}
+  await select.click();await pending();
+  assert.equal(await page.locator('.preview-loading-hint').count(),0,'fast task does not immediately mount an indicator');
+  await finish();await page.waitForFunction(()=>document.querySelector('.workshop')?.getAttribute('aria-busy')==='false');
+  await page.clock.fastForward(800);
+  assert.equal(await page.locator('.preview-loading-hint').count(),0,'completed fast task cancels delayed indicator');
+  await select.click();await pending();await page.clock.fastForward(700);
+  await page.locator('.preview-loading-hint').waitFor();
+  assert.equal(await page.locator('.preview-loading-hint p').count(),0,'short wait remains compact');
+  assert.equal(await page.locator('#root').evaluate(e=>getComputedStyle(e).visibility),'visible');
+  assert.equal(await page.locator('.preview-loading-hint').evaluate(e=>getComputedStyle(e).pointerEvents),'none');
+  assert.equal(await page.locator('.vehicle-loading').count(),0,'preview has no full-screen backdrop');
+  assert(await page.locator('.loading-status').isHidden());
+  await page.clock.fastForward(10000);
+  await page.locator('.preview-loading-hint p').waitFor();
+  await page.screenshot({path:`docs/evidence/preview-discreet-${width}x${height}.png`,animations:'disabled'});
+  const hintBox=await page.locator('.preview-loading-hint').boundingBox();assert(hintBox.width*hintBox.height<width*height*.12,'preview indicator occupies a small part of the screen');
+  await finish(false);await page.locator('.preview-loading-hint').waitFor({state:'detached'});
+  await page.locator('.workshop-error').waitFor();assert.match(await page.locator('.workshop-error').textContent(),/MODEL: Modelo indisponível/);
+  await post({type:'screenFade',active:true});await page.clock.fastForward(200);
+  assert(await page.locator('.loading-status').isHidden(),'no opaque successor after preview error either');
+  await post({type:'screenFade',active:false});
+  await select.click();await pending();await page.clock.fastForward(700);await page.locator('.preview-loading-hint').waitFor();
+  await post({type:'workshop',state:false});await page.locator('.preview-loading-hint').waitFor({state:'detached'});
+  await finish();await page.clock.fastForward(1500);
+  assert.equal(await page.locator('.preview-loading-hint').count(),0,'late reply after closing workshop cannot resurrect the hint');
+  assert.deepEqual(errors,[]);
+  reports.push({width,height,slowJoin:true,realEventsClearStaleHint:true,confirmedErrorPreserved:true,noFalseGlobalPercent:true,sceneFeedbackAboveFade:true,cleanupRevealsUI:true,noNativeFadeLoading:true,delayedCompactPreview:true,longPreviewDetails:true,previewFailureCleanup:true,scope:'browser with simulated time and messages; no FiveM client'});
+  await page.close();
+ }
+ await writeFile('docs/evidence/loading-feedback-2026-10-30.json',JSON.stringify(reports,null,2));
+ console.log('Loading feedback: slow/stale/resumed/error initial loading and timed scene overlay/cleanup pass in four resolutions (browser fixtures).');
+}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

@@ -1,0 +1,12 @@
+{
+  "date":"2026-10-18",
+  "checks":{"test":"passed","build":"passed","typecheck":"passed","staticCheck":"passed","diffCheck":"passed; preexisting CRLF warning","browser":"passed at 1280x720, 1920x1080, 2560x1440 and 3440x1440"},
+  "camera":{"response":40,"frameResidualQueue":false,"orderedInput":true,"stopCancelsPendingTarget":true},
+  "doors":{"keyboard":"L-ALT","controller":"L3","restoreAfterApply":true,"manualOverride":"editor session only","savedPropertiesModified":false},
+  "regressions":["release/blur/viewport-edge cancellation","late movement rejected after newer stop","previous editor input ignored","no movement packets queued after release","door context restored after preview apply","manual all-open/all-closed survives categories and apply","presentation identity and cleanup","Play equal size and unselected background","saved cars has no clickable Back"],
+  "browserReport":"ui.json",
+  "visualInspection":"garage-home-refined-1280x720.png",
+  "nativeAdaptersSimulated":true,
+  "gameClients":0,
+  "remainingInGame":["perceived mouse and stick latency","physical mouse leaving FiveM window","focus loss behavior","door animations in vanilla and ER34N"]
+}

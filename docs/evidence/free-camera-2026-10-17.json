@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-17",
+  "checks": {
+    "test": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "staticCheck": "passed",
+    "browser": "passed at 1280x720, 1920x1080, 2560x1440 and 3440x1440",
+    "diffCheck": "passed; preexisting server.cfg CRLF normalization warning"
+  },
+  "regressions": [
+    "continuous visual movement while next collision query is pending",
+    "blocked and expired queries retain approved destination",
+    "completed query handles are cached until both finish",
+    "idle camera does not continuously allocate queries",
+    "exponential response agrees at 30, 60 and 144 simulated FPS",
+    "real client requests a 350ms camera interpolation on activation",
+    "piece requests do not replace manual camera",
+    "editor exit disables orbit and rejects late drag",
+    "activation invalidated during collision validation does not create camera",
+    "keyboard and controller-message back preserve orbit across submenus",
+    "camera shortcut works while slider is focused",
+    "30 pointer events are batched without losing accumulated movement"
+  ],
+  "browserReport": "ui.json",
+  "visualInspection": "free-camera-ui-1920x1080.png; NUI only, no game scene rendered",
+  "nativeAdaptersSimulated": true,
+  "gameClients": 0,
+  "realFpsMeasured": false,
+  "inGameRequired": [
+    "perceived smoothness and response with mouse and physical gamepad",
+    "activation and FOV transitions",
+    "walls and ceiling of ps-tuners",
+    "zoom and vehicle-envelope clipping across different models"
+  ]
+}

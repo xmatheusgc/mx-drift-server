@@ -1,0 +1,10 @@
+{
+  "date":"2026-10-18",
+  "changes":{"selectionScale":1.035,"durationMs":100,"badge":"EQUIPADO","badgeBackground":"#79e34b","badgeText":"#080c06","doorsKeyboard":"Space","doorsController":"L3"},
+  "checks":{"build":"passed","typecheck":"passed","staticCheck":"passed","diffCheck":"passed; preexisting CRLF warning","browserUi":"passed in four resolutions","browserLobby":"passed in four resolutions"},
+  "visualInspection":"equipped-badge-1280x720.png",
+  "browserReport":"ui.json",
+  "regressions":["confirmed part text and green/dark badge colors","selected option actual transform above 1.03","Space and controller messages reach existing doors action","base layout dimensions remain equal while selected visual dimensions grow"],
+  "gameClients":0,
+  "remainingInGame":["FiveM NUI scaling and clipping","physical Space shortcut"]
+}

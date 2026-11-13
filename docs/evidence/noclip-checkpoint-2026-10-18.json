@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-18",
+  "reference": "https://github.com/TomGrobbe/vMenu/blob/master/vMenu/Noclip.cs",
+  "referenceLicenseReviewed": "https://github.com/TomGrobbe/vMenu/blob/master/LICENSE.md",
+  "externalCodeImported": false,
+  "noclip": {
+    "speedLevelsMps": [2,5,10,25,50,100,200,400],
+    "defaultSpeedIndex": 3,
+    "controls": {"toggle": "F2", "speed": "Shift", "up": "Q", "down": "Z", "cameraMode": "H", "fixedHeadingTurn": "A/D"},
+    "frameRateRegression": [30,120],
+    "localGhostAlpha": 80,
+    "originalEntityStateRestored": true,
+    "serverGrantAndTokenValidationRetained": true
+  },
+  "checkpoint": {
+    "collisionLoadedConditionRemoved": true,
+    "streamingRequestIsNonBlocking": true,
+    "savedPitchRollHeadingRestored": true,
+    "groundSnappingUsed": false,
+    "initialDestinationValidationDependencyRemoved": true,
+    "ownerDriverPassengersAndOccupancyChecksRetained": true,
+    "ordinaryTravelPolicyChanged": false
+  },
+  "checks": {
+    "buildIncludingTypeScript": "passed",
+    "staticCheck": "passed",
+    "luaFengari": "passed",
+    "luaFilesParsed": 60,
+    "browserUI": "passed",
+    "browserResolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "screenshotInspected": "noclip-guide-1280x720.png",
+    "diffWhitespaceCheck": "passed"
+  },
+  "gameClients": 0,
+  "nativeAndNetworkAdaptersSimulated": true,
+  "browserResponsesAreFixtures": true,
+  "liveServerRestarted": false,
+  "validatedInFiveM": false,
+  "pending": ["actual flight feel and controller inputs", "local ghost/remote visibility", "entity restoration and owner migration with two clients", "physical return on slopes and MLO streaming"]
+}

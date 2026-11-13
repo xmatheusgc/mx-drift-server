@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-18",
+  "scope": "Freeroam trainer controls, repair, tracks, moderation and temporary explicit player fixture",
+  "checks": {
+    "build": "passed: TypeScript and production Vite bundle",
+    "typecheck": "passed",
+    "static": "passed: resource manifests, startup dependency graph and domain boundaries",
+    "lint": "no standalone lint script provided by this repository",
+    "lua": "passed: 64 production Lua files parsed; existing regressions plus actual moderation, teleport, binding and shortcut-poll modules executed with native/KVP/disk adapters",
+    "browser": "passed in Chromium: 1280x720, 1920x1080, 2560x1440, 3440x1440; explicit simulated transport",
+    "visualInspection": ["trainer-controls-1280x720.png", "trainer-indicators-1280x720.png"],
+    "uiCases": ["keyboard-only menu", "repair remap and removal", "assign previously unbound function", "track categories", "separated diagnostics", "teleport name/category form without client position", "test-player moderation never calls real API", "warning on fixture real numeric target", "three independent driving indicators", "existing garage customization regression suite"],
+    "serverCases": ["admin membership and per-action ACE required", "direct forbidden RPCs rejected", "synthetic moderation target rejected", "administrator target protected", "target identity revalidated after audit", "administrator epoch revalidated after audit", "write failure prevents ban or teleport publication", "ban and teleport survive module reload", "unban", "teleport caller and bucket checked independently", "server-observed teleport coordinates", "binding conflict and injection rejection", "KVP profile isolation", "repair held-key suppression"]
+  },
+  "operationalData": {
+    "banStore": "resources/[mx]/mx-freeroam-admin/bans.json (created by first actual ban)",
+    "teleportStore": "resources/[mx]/mx-freeroam-world/teleports.json (created by first actual point)",
+    "keyboardAndPadBindings": "client resource KVP keyed by profile ID",
+    "testPlayer": "local UI only; enabled by mx_menuTestPlayer=1 in development.cfg"
+  },
+  "fiveMClientExecuted": false,
+  "liveServerRestarted": false,
+  "realModerationExecuted": false,
+  "runtimePending": ["physical keyboard and controller switching", "KVP persistence across client restart", "cross-resource exports and ban gate on real connection", "two real accounts for warn/kick/ban/reconnect", "real disk persistence under FXServer", "streaming and teleport collision on configured tracks", "repair in motion and network ownership"]
+}

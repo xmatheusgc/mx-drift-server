@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-21",
+  "defaults": {
+    "realMinutesPerGameDay": 96,
+    "weatherIntervalRealMinutes": 15,
+    "weatherTransitionRealSeconds": 60,
+    "publishIntervalMilliseconds": 1000,
+    "restartBehavior": "configured initial time and weather",
+    "snowInDefaultCycle": false
+  },
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "check": "passed; project has no separate lint script",
+    "test": "passed; actual Lua modules with native/network adapters",
+    "test:ui": "passed in 1280x720, 1920x1080, 2560x1440 and 3440x1440 with browser fixtures"
+  },
+  "regressions": [
+    "configured rate and fractional elapsed time",
+    "midnight and full-day wrap",
+    "server thread publication and delayed scheduling",
+    "uint32 game timer rollover",
+    "weather graph, midpoint blend and completed transition",
+    "late join uses current transition snapshot",
+    "invalid configuration rejected",
+    "independent personal settings ignore server progression",
+    "resync restores current server seconds and blend",
+    "actual client world loop renders blend and seconds",
+    "presentation overrides and restores current environment"
+  ],
+  "databaseChanged": false,
+  "fiveMClientExecuted": false,
+  "liveServerRestarted": false,
+  "pendingRuntime": ["visual transitions and clock", "replication and isolation between two clients", "return from lobby and garage"]
+}

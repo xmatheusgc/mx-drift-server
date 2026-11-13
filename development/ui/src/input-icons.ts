@@ -1,0 +1,30 @@
+// Kenney Input Prompts 1.5A, solid vectors, CC0. See docs/licenses/kenney-input-prompts.txt.
+export const inputIcons={
+ 'keyboard_space':new URL('./assets/input/keyboard_space.svg',import.meta.url).href, // Project-authored solid spacebar glyph.
+ 'stick_press':new URL('./assets/input/stick_press.svg',import.meta.url).href, // Project-authored solid L3 glyph.
+ 'keyboard_enter':new URL('./assets/input/keyboard_enter.svg',import.meta.url).href,
+ 'keyboard_escape':new URL('./assets/input/keyboard_escape.svg',import.meta.url).href,
+ 'keyboard_alt':new URL('./assets/input/keyboard_alt.svg',import.meta.url).href,
+ 'keyboard_w':new URL('./assets/input/keyboard_w.svg',import.meta.url).href,
+ 'keyboard_arrows_all':new URL('./assets/input/keyboard_arrows_all.svg',import.meta.url).href,
+ 'xbox_button_a':new URL('./assets/input/xbox_button_a.svg',import.meta.url).href,
+ 'xbox_button_b':new URL('./assets/input/xbox_button_b.svg',import.meta.url).href,
+ 'xbox_button_y':new URL('./assets/input/xbox_button_y.svg',import.meta.url).href,
+ 'xbox_rt':new URL('./assets/input/xbox_rt.svg',import.meta.url).href,
+ 'xbox_dpad_all':new URL('./assets/input/xbox_dpad_all.svg',import.meta.url).href,
+ 'playstation_button_cross':new URL('./assets/input/playstation_button_cross.svg',import.meta.url).href,
+ 'playstation_button_circle':new URL('./assets/input/playstation_button_circle.svg',import.meta.url).href,
+ 'playstation_button_triangle':new URL('./assets/input/playstation_button_triangle.svg',import.meta.url).href,
+ 'playstation_trigger_r2':new URL('./assets/input/playstation_trigger_r2.svg',import.meta.url).href,
+ 'playstation_dpad_all':new URL('./assets/input/playstation_dpad_all.svg',import.meta.url).href,
+ 'keyboard_q':new URL('./assets/input/keyboard_q.svg',import.meta.url).href,
+ 'keyboard_e':new URL('./assets/input/keyboard_e.svg',import.meta.url).href,
+ 'keyboard_c':new URL('./assets/input/keyboard_c.svg',import.meta.url).href,
+ 'xbox_lb':new URL('./assets/input/xbox_lb.svg',import.meta.url).href,
+ 'xbox_rb':new URL('./assets/input/xbox_rb.svg',import.meta.url).href,
+ 'playstation_trigger_l1':new URL('./assets/input/playstation_trigger_l1.svg',import.meta.url).href,
+ 'playstation_trigger_r1':new URL('./assets/input/playstation_trigger_r1.svg',import.meta.url).href,
+ 'xbox_button_x':new URL('./assets/input/xbox_button_x.svg',import.meta.url).href,
+ 'playstation_button_square':new URL('./assets/input/playstation_button_square.svg',import.meta.url).href,
+ 'keyboard_s':new URL('./assets/input/keyboard_s.svg',import.meta.url).href,
+};

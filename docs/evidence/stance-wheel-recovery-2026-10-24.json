@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "kind": "optional_wheel_geometry_recovery",
+  "reported_model": "SC300A",
+  "reported_failure": "wheel_size_native_rejection",
+  "model_asset_cause_confirmed": false,
+  "model_assets_modified": false,
+  "tests": {
+    "full_suite": "passed",
+    "stance_assertions_with_native_adapters": 42,
+    "effective_stance_preview_ack": "passed",
+    "build": "passed",
+    "typecheck": "passed",
+    "static_and_manifests": "passed",
+    "browser_refusal_warning_and_effective_save": "passed",
+    "browser_resolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "visual_inspection": "stance-size-fallback-1280x720.png"
+  },
+  "policy": {
+    "rejected_dimension_aborts_all_customization": false,
+    "other_stance_dimensions_preserved": true,
+    "rejected_factor_persisted_as_success": false,
+    "automatic_spawn_rewrites_saved_sql": false,
+    "native_refusal_cached_per_entity_and_wheel_set": true,
+    "invalid_payload_and_identity_guards_preserved": true
+  },
+  "follow_up_1040": {
+    "user_confirmed_modified_wheels": true,
+    "zero_baseline_stock_to_tuning_bug_reproduced_with_native_adapters": true,
+    "lazy_positive_baseline_initialization_fixed": true,
+    "failure_diagnostic_contains": ["baseline", "requested", "readback", "native_result"],
+    "full_suite": "passed",
+    "stance_assertions_with_native_adapters": 47,
+    "static_and_manifests": "passed",
+    "ui_or_build_changed_or_rerun": false,
+    "actual_SC300A_root_cause_confirmed": false
+  },
+  "game_clients_verified": 0,
+  "server_restarted": false,
+  "player_data_modified": false,
+  "remaining": ["Full restart and reconnect", "SC300A native behavior with reported wheels", "Save and recreate real vehicle", "Alternate wheels and other modified model"]
+}

@@ -1,0 +1,29 @@
+{
+    "dateLocal":  "2026-10-16",
+    "archive":  "C:\\FiveM\\drift-server\\temporario-legado-20261016",
+    "moves":  25,
+    "preservedFiles":  11,
+    "preservedHashesMatch":  true,
+    "legacyTablesDropped":  30,
+    "backupsRestoredAndCompared":  5,
+    "activeDatabaseUnchanged":  true,
+    "currentRulesPassed":  43,
+    "powertrainAssertionsPassed":  223,
+    "server":  "FXServer-master SERVER v1.0.0.37175 win32",
+    "port":  30131,
+    "resources":  [
+                      "hardcap",
+                      "mx-freeroam-activities",
+                      "mx-freeroam-progression",
+                      "mx-freeroam-admin",
+                      "mx-freeroam-core",
+                      "mx-freeroam-social",
+                      "mx-freeroam-menu",
+                      "mx-freeroam-vehicles",
+                      "mx-freeroam-world",
+                      "oxmysql",
+                      "pma-voice"
+                  ],
+    "gameClients":  0,
+    "note":  "30120 ocupada; processo existente preservado. Gearbox/turbo mantidos sem ativacao ou alteracao."
+}

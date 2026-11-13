@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-21",
+  "scope": ["S14 paint application and readback", "initial lobby readiness and recovery", "personal environment in freeroam"],
+  "checks": {
+    "build": "passed",
+    "typecheck": "passed",
+    "check": "passed; project static checks, no separate lint script",
+    "test": "passed; actual Lua modules with native/network/KVP/SQL adapters and JS regressions",
+    "test:ui": "passed in four resolutions; includes personal weather/time keyboard and nav-message contracts",
+    "test:lobby": "passed in four resolutions; includes opaque initial failure, retry focus and successful recovery",
+    "visualInspection": ["personal-environment-1920x1080.png", "lobby-entry-error-1920x1080.png"]
+  },
+  "regressions": [
+    "indexed paint after finish and part natives",
+    "RGB readback independent of base palette index",
+    "incorrect RGB remains rejected with expected/observed diagnostics",
+    "first-join ped zero waits before return-point capture",
+    "ped replacement after scene ACK waits without accepting another epoch",
+    "missing ped timeout remains bounded",
+    "actual epoch change remains rejected",
+    "first-join rollback stays frozen with controls blocked until completed departure",
+    "independent weather/time sync, per-profile KVP reload and failed-write handling",
+    "presentation environment takes precedence; public environment restored afterwards"
+  ],
+  "databaseChanged": false,
+  "externalCodeIncorporated": false,
+  "fiveMClientExecuted": false,
+  "liveServerRestarted": false,
+  "gameClients": 0,
+  "pendingRuntime": [
+    "S14 actual indexed/RGB/finish combinations and persistence after reconnect",
+    "cold join and ped replication under real network latency",
+    "camera and collision recovery in game",
+    "physical controller input",
+    "two-client weather isolation and return from lobby/garage"
+  ],
+  "causeQualification": "Source-level paint ordering and mode-validation defects corrected; exact S14 native behavior was not reproduced in FiveM."
+}

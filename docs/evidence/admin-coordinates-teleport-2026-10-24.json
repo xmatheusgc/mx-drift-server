@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "features": ["ped_vehicle_camera_pose", "live_coordinates_heading_overlay", "vector3_vector4_lua_capture", "entity_model_interior_network_inspection", "coordinate_teleport", "map_waypoint_teleport"],
+  "permissions": {"required": "mx.admin", "read_tools": "mx.inspect", "teleport": "mx.teleport", "group_mxadmin_grant_added": true},
+  "timing_ms": {"local_panel": 100, "authorization_renewal": 2000, "local_expiry": 6000, "waypoint_ground_timeout": 8000},
+  "tests": {
+    "build_and_typecheck": "passed",
+    "static_manifests": "passed",
+    "full_suite": "passed",
+    "new_admin_native_adapter_assertions": 36,
+    "coordinate_parser_and_formatter": "passed",
+    "integration_with_actual_world_travel": "passed_with_native_network_adapters",
+    "browser": "passed_with_mocked_transport",
+    "browser_resolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+    "visual_inspection": ["admin-coordinates-1280x720.png", "admin-teleport-1280x720.png"]
+  },
+  "preserved_guards": ["ACE and profile epoch", "public world context", "own vehicle driver", "passengers", "occupied destination", "ACK and server position", "travel rollback"],
+  "game_clients_verified": 0,
+  "real_clipboard_verified": false,
+  "real_waypoint_ground_verified": false,
+  "server_restarted": false,
+  "player_data_modified": false,
+  "vmenu_removed_or_disabled": false,
+  "memory_updated": "workspace export only"
+}

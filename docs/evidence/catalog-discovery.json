@@ -1,0 +1,173 @@
+{
+  "rows": [
+    {
+      "id": "180sx",
+      "model": "180sx",
+      "name": "180sx",
+      "brand": "NISSAN",
+      "category": "NISSAN",
+      "asset": "180sx",
+      "source": "vehicles",
+      "tags": [
+        "NISSAN",
+        "180sx"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "chaser90",
+      "model": "chaser90",
+      "name": "Chaser JZX90",
+      "brand": "TOYOTA",
+      "category": "TOYOTA",
+      "asset": "chaser90",
+      "source": "vehicles",
+      "tags": [
+        "TOYOTA",
+        "chaser90"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "er34",
+      "model": "er34",
+      "name": "er34",
+      "brand": "D1",
+      "category": "D1",
+      "asset": "er34",
+      "source": "vehicles",
+      "tags": [
+        "D1",
+        "er34"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "er34n",
+      "model": "er34n",
+      "name": "ER34N",
+      "brand": "NISSAN",
+      "category": "NISSAN",
+      "asset": "er34n",
+      "source": "vehicles",
+      "tags": [
+        "NISSAN",
+        "er34n"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "jzx100",
+      "model": "jzx100",
+      "name": "Chaser",
+      "brand": "TOYOTA",
+      "category": "TOYOTA",
+      "asset": "jzx100",
+      "source": "vehicles",
+      "tags": [
+        "TOYOTA",
+        "jzx100"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "mk2100",
+      "model": "mk2100",
+      "name": "MARKII",
+      "brand": "TOYOTA",
+      "category": "TOYOTA",
+      "asset": "mk2100",
+      "source": "vehicles",
+      "tags": [
+        "TOYOTA",
+        "mk2100"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "nis13",
+      "model": "nis13",
+      "name": "S13",
+      "brand": "NISSAN",
+      "category": "NISSAN",
+      "asset": "nis13",
+      "source": "vehicles",
+      "tags": [
+        "NISSAN",
+        "nis13"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "nis15",
+      "model": "nis15",
+      "name": "Nissan",
+      "brand": "SILVIA S15",
+      "category": "SILVIA S15",
+      "asset": "nis15",
+      "source": "vehicles",
+      "tags": [
+        "SILVIA S15",
+        "nis15"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "nisa31",
+      "model": "nisa31",
+      "name": "nisa31",
+      "brand": "NISSAN",
+      "category": "NISSAN",
+      "asset": "nisa31",
+      "source": "vehicles",
+      "tags": [
+        "NISSAN",
+        "nisa31"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "s14",
+      "model": "s14",
+      "name": "s14",
+      "brand": "NISSAN",
+      "category": "NISSAN",
+      "asset": "s14",
+      "source": "vehicles",
+      "tags": [
+        "NISSAN",
+        "s14"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "s15naoki",
+      "model": "s15naoki",
+      "name": "Nissan",
+      "brand": "SILVIA S15 NAOKI NAKAMURA",
+      "category": "SILVIA S15 NAOKI NAKAMURA",
+      "asset": "s15naoki",
+      "source": "vehicles",
+      "tags": [
+        "SILVIA S15 NAOKI NAKAMURA",
+        "s15naoki"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "chaser",
+      "model": "chaser",
+      "name": "Chaser",
+      "brand": "TOYOTA",
+      "category": "TOYOTA",
+      "asset": "toyotachaserjzx100",
+      "source": "vehicles",
+      "tags": [
+        "TOYOTA",
+        "toyotachaserjzx100"
+      ],
+      "revision": 1
+    }
+  ],
+  "diagnostics": []
+}

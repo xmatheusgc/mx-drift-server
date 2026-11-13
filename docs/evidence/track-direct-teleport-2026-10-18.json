@@ -1,0 +1,15 @@
+{
+  "build": "passed",
+  "typecheck": "passed",
+  "staticCheck": "passed",
+  "luaRegressions": "passed with native/network adapters",
+  "browser": "passed in Chromium with simulated API transport",
+  "resolutions": [[1280,720],[1920,1080],[2560,1440],[3440,1440]],
+  "assertions": ["confirm track sends one request", "payload contains destination only", "no intermediate foot/car submenu", "success message shown", "server chooses car or ped", "client legacy mode cannot override server choice", "collision state cannot reject travel", "native failure restores position and freeze", "driver and passenger policy preserved"],
+  "screenshotPattern": "track-direct-teleport-<width>x<height>.png",
+  "visuallyInspected": "track-direct-teleport-1920x1080.png",
+  "fiveMClientExecuted": false,
+  "serverRestarted": false,
+  "databaseChanged": false,
+  "pendingInGame": ["actual map streaming", "vehicle and foot teleport", "network replication", "physical controller"]
+}

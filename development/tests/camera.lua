@@ -1,0 +1,16 @@
+local E=CameraTestExports
+local first=E.AcquireView('drivecam') assert(first and E.OwnsView(first))
+E.SuspendDrivecam('menu',true) E.SuspendDrivecam('respawn',true) E.SuspendDrivecam('menu',false)
+assert(E.DrivecamSuspended(),'one reason must not clear another') E.SuspendDrivecam('respawn',false)
+assert(not E.DrivecamSuspended())
+local workshop=E.AcquireView('workshop') assert(workshop and not E.OwnsView(first),'presentation takes priority')
+assert(not E.ReleaseView(first) and E.OwnsView(workshop),'stale release must not clear workshop')
+assert(not E.AcquireView('drivecam'),'driver cannot steal presentation')
+assert(E.ReleaseView(workshop) and not E.ReleaseView(workshop),'cleanup idempotent')
+local q={generation=2,vehicle=7,at=100}
+assert(DrivecamMath.queryFresh(q,2,7,120,0.2,0.3))
+assert(not DrivecamMath.queryFresh(q,3,7,120,0.2,0.3),'old generation rejected')
+assert(not DrivecamMath.queryFresh(q,2,8,120,0.2,0.3),'other entity rejected')
+assert(not DrivecamMath.queryFresh(q,2,7,300,0.2,0.3),'stale query rejected')
+assert(not DrivecamMath.queryFresh(q,2,7,120,3,0.3),'spatially invalid query rejected')
+print('12 verificações de posse, suspensão e consultas de colisão aprovadas')

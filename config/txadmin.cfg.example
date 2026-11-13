@@ -1,0 +1,3 @@
+# Copie para txadmin.local.cfg. Identificadores pessoais ficam somente nesse arquivo privado.
+add_principal group.admin group.mxadmin
+# add_principal identifier.license:SEU_IDENTIFICADOR group.admin

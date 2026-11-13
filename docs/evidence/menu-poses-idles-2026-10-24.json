@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "timezone": "America/Sao_Paulo",
+  "poses": {
+    "lobby_character": {"x":-950.165,"y":-3535.050,"z":14.618,"h":77.78},
+    "lobby_vehicle": {"x":-949.463,"y":-3532.688,"z":13.967,"h":116.28},
+    "garage_character": {"x":133.303,"y":-3027.849,"z":7.041,"h":276.85},
+    "garage_vehicle": {"x":135.962,"y":-3030.353,"z":6.396,"h":0.11}
+  },
+  "camera": {"forward":3.8,"right":3.1,"height_above_car_origin":0.85,"fov":60,"fit":"projected car and character bounds; horizontal retreat only","fixed_camera_coordinates_provided":false},
+  "idles": {"male_free_candidates":4,"female_free_candidates":4,"female_wall_candidates":1,"wall_enabled":false,"min_ms":18000,"max_ms":32000,"load_timeout_ms":2000,"verify_ms":500,"blend":1.5,"blocks_scene_ack":false,"driver_hidden_ped_animated":false},
+  "tests": {"full_suite":"passed","static_manifests":"passed","new_scene_idle_assertions":111,"actual_client_fixed_placement":"passed_with_native_adapters","experience_vehicle_points":"passed_with_adapters","camera_projection_aspects":[[1280,720],[1920,1080],[2560,1440],[3440,1440]]},
+  "ui_modified_or_rebuilt":false,
+  "game_clients_verified":0,
+  "animation_visuals_verified":false,
+  "server_restarted":false,
+  "player_data_modified":false,
+  "remaining":["Restart and reconnect","Actual lobby and garage composition","Male/female animation appearance and root stability","Large model intersections with fixed character point","Cleanup after customization and departure"]
+}
